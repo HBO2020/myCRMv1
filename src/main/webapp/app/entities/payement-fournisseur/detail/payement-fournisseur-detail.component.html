@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="payementFournisseur">
+      <h2 data-cy="payementFournisseurDetailsHeading">
+        <span jhiTranslate="myCrMv1App.payementFournisseur.detail.title">Payement Fournisseur</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ payementFournisseur.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.payementFournisseur.payementFrIdent">Payement Fr Ident</span></dt>
+        <dd>
+          <span>{{ payementFournisseur.payementFrIdent }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.payementFournisseur.payementFrDate">Payement Fr Date</span></dt>
+        <dd>
+          <span>{{ payementFournisseur.payementFrDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.payementFournisseur.payementFrMode">Payement Fr Mode</span></dt>
+        <dd>
+          <span>{{ payementFournisseur.payementFrMode }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.payementFournisseur.payementFrEcheance">Payement Fr Echeance</span></dt>
+        <dd>
+          <span>{{ payementFournisseur.payementFrEcheance | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.payementFournisseur.payementFrMontant">Payement Fr Montant</span></dt>
+        <dd>
+          <span>{{ payementFournisseur.payementFrMontant }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/payement-fournisseur', payementFournisseur.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

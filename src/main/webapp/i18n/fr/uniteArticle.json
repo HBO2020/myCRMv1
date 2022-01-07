@@ -1,0 +1,27 @@
+{
+  "myCrMv1App": {
+    "uniteArticle": {
+      "home": {
+        "title": "UniteArticles",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Unite Article",
+        "createOrEditLabel": "Créer ou éditer un Unite Article",
+        "notFound": "Aucun Unite Article trouvé"
+      },
+      "created": "Un nouveau Unite Article a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Unite Article avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Unite Article avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Unite Article {{ id }} ?"
+      },
+      "detail": {
+        "title": "Unite Article"
+      },
+      "id": "ID",
+      "uniteCode": "Unite Code",
+      "uniteLibelle": "Unite Libelle",
+      "uniteOption": "Unite Option",
+      "article": "Article"
+    }
+  }
+}

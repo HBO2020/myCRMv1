@@ -1,0 +1,75 @@
+{
+  "name": "FactureAchat",
+  "fields": [
+    {
+      "fieldName": "achatIdentFac",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "achatDateEffet",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "achatDateUpdate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "achatStatusFact",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "achatMontantHT",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "achatMontantTVA",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "achatMontantTTC",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "fournisseur",
+      "otherEntityRelationshipName": "factureAchat",
+      "relationshipName": "fournisseur"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "payementFournisseur",
+      "otherEntityRelationshipName": "factureAchat",
+      "relationshipName": "payementFr"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "livraisonFr",
+      "otherEntityRelationshipName": "factureAchat",
+      "relationshipName": "livraisonFr"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "client",
+      "otherEntityRelationshipName": "factureAchat",
+      "relationshipName": "client"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "payementClient",
+      "otherEntityRelationshipName": "factureAchat",
+      "relationshipName": "payementCl"
+    }
+  ],
+  "entityTableName": "facture_achat",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220107134236"
+}

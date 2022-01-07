@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="commandeFournisseur">
+      <h2 data-cy="commandeFournisseurDetailsHeading">
+        <span jhiTranslate="myCrMv1App.commandeFournisseur.detail.title">Commande Fournisseur</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ commandeFournisseur.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.commandeFournisseur.cmdIdenFr">Cmd Iden Fr</span></dt>
+        <dd>
+          <span>{{ commandeFournisseur.cmdIdenFr }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.commandeFournisseur.cmdDateEffetFr">Cmd Date Effet Fr</span></dt>
+        <dd>
+          <span>{{ commandeFournisseur.cmdDateEffetFr | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.commandeFournisseur.cmdDateLivraisonFr">Cmd Date Livraison Fr</span></dt>
+        <dd>
+          <span>{{ commandeFournisseur.cmdDateLivraisonFr | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.commandeFournisseur.fournisseur">Fournisseur</span></dt>
+        <dd>
+          <div *ngIf="commandeFournisseur.fournisseur">
+            <a [routerLink]="['/fournisseur', commandeFournisseur.fournisseur?.id, 'view']">{{ commandeFournisseur.fournisseur?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.commandeFournisseur.livraisonFr">Livraison Fr</span></dt>
+        <dd>
+          <div *ngIf="commandeFournisseur.livraisonFr">
+            <a [routerLink]="['/livraison-fr', commandeFournisseur.livraisonFr?.id, 'view']">{{ commandeFournisseur.livraisonFr?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/commande-fournisseur', commandeFournisseur.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

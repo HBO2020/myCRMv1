@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-civilite-client-heading"
+        data-cy="CiviliteClientCreateUpdateHeading"
+        jhiTranslate="myCrMv1App.civiliteClient.home.createOrEditLabel"
+      >
+        Create or edit a Civilite Client
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.civiliteClient.civiliteLibelleCl" for="field_civiliteLibelleCl"
+            >Civilite Libelle Cl</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="civiliteLibelleCl"
+            id="field_civiliteLibelleCl"
+            data-cy="civiliteLibelleCl"
+            formControlName="civiliteLibelleCl"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.civiliteClient.civiliteCodeCl" for="field_civiliteCodeCl"
+            >Civilite Code Cl</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="civiliteCodeCl"
+            id="field_civiliteCodeCl"
+            data-cy="civiliteCodeCl"
+            formControlName="civiliteCodeCl"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

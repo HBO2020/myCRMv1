@@ -1,0 +1,28 @@
+{
+  "myCrMv1App": {
+    "ligneLivClient": {
+      "home": {
+        "title": "Ligne Liv Clients",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Ligne Liv Client",
+        "createOrEditLabel": "Create or edit a Ligne Liv Client",
+        "notFound": "No Ligne Liv Clients found"
+      },
+      "created": "A new Ligne Liv Client is created with identifier {{ param }}",
+      "updated": "A Ligne Liv Client is updated with identifier {{ param }}",
+      "deleted": "A Ligne Liv Client is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ligne Liv Client {{ id }}?"
+      },
+      "detail": {
+        "title": "Ligne Liv Client"
+      },
+      "id": "ID",
+      "livQuantiteCl": "Liv Quantite Cl",
+      "livNmPiecesCl": "Liv Nm Pieces Cl",
+      "livTotalPrixCl": "Liv Total Prix Cl",
+      "article": "Article",
+      "livraisonCl": "Livraison Cl"
+    }
+  }
+}

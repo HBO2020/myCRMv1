@@ -1,0 +1,28 @@
+{
+  "myCrMv1App": {
+    "ligneLivFournisseur": {
+      "home": {
+        "title": "LigneLivFournisseurs",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Ligne Liv Fournisseur",
+        "createOrEditLabel": "Créer ou éditer un Ligne Liv Fournisseur",
+        "notFound": "Aucun Ligne Liv Fournisseur trouvé"
+      },
+      "created": "Un nouveau Ligne Liv Fournisseur a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ligne Liv Fournisseur avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ligne Liv Fournisseur avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ligne Liv Fournisseur {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ligne Liv Fournisseur"
+      },
+      "id": "ID",
+      "livFrQuantite": "Liv Fr Quantite",
+      "livFrNmPieces": "Liv Fr Nm Pieces",
+      "livFrTotalPrix": "Liv Fr Total Prix",
+      "article": "Article",
+      "livraisonFr": "Livraison Fr"
+    }
+  }
+}

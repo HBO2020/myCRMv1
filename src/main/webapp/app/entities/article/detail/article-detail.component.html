@@ -1,0 +1,103 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="article">
+      <h2 data-cy="articleDetailsHeading"><span jhiTranslate="myCrMv1App.article.detail.title">Article</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ article.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.article.artclIden">Artcl Iden</span></dt>
+        <dd>
+          <span>{{ article.artclIden }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.article.artclReference">Artcl Reference</span></dt>
+        <dd>
+          <span>{{ article.artclReference }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.article.artclDesignation">Artcl Designation</span></dt>
+        <dd>
+          <span>{{ article.artclDesignation }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.article.artclQnStock">Artcl Qn Stock</span></dt>
+        <dd>
+          <span>{{ article.artclQnStock }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.article.artclImg">Artcl Img</span></dt>
+        <dd>
+          <div *ngIf="article.artclImg">
+            <a (click)="openFile(article.artclImg, article.artclImgContentType)">
+              <img
+                [src]="'data:' + article.artclImgContentType + ';base64,' + article.artclImg"
+                style="max-width: 100%"
+                alt="article image"
+              />
+            </a>
+            {{ article.artclImgContentType }}, {{ byteSize(article.artclImg) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.article.artclSerie">Artcl Serie</span></dt>
+        <dd>
+          <span>{{ article.artclSerie }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.article.artclPrixAchat">Artcl Prix Achat</span></dt>
+        <dd>
+          <span>{{ article.artclPrixAchat }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.article.artclPxAchatTotal">Artcl Px Achat Total</span></dt>
+        <dd>
+          <span>{{ article.artclPxAchatTotal }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.article.artclPxVenteTotal">Artcl Px Vente Total</span></dt>
+        <dd>
+          <span>{{ article.artclPxVenteTotal }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.article.ligneCmdFournisseur">Ligne Cmd Fournisseur</span></dt>
+        <dd>
+          <div *ngIf="article.ligneCmdFournisseur">
+            <a [routerLink]="['/ligne-cmd-fournisseur', article.ligneCmdFournisseur?.id, 'view']">{{ article.ligneCmdFournisseur?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.article.ligneLivFournisseur">Ligne Liv Fournisseur</span></dt>
+        <dd>
+          <div *ngIf="article.ligneLivFournisseur">
+            <a [routerLink]="['/ligne-liv-fournisseur', article.ligneLivFournisseur?.id, 'view']">{{ article.ligneLivFournisseur?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.article.uniteArticle">Unite Article</span></dt>
+        <dd>
+          <div *ngIf="article.uniteArticle">
+            <a [routerLink]="['/unite-article', article.uniteArticle?.id, 'view']">{{ article.uniteArticle?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.article.ligneCmdClient">Ligne Cmd Client</span></dt>
+        <dd>
+          <div *ngIf="article.ligneCmdClient">
+            <a [routerLink]="['/ligne-cmd-client', article.ligneCmdClient?.id, 'view']">{{ article.ligneCmdClient?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.article.ligneLivClient">Ligne Liv Client</span></dt>
+        <dd>
+          <div *ngIf="article.ligneLivClient">
+            <a [routerLink]="['/ligne-liv-client', article.ligneLivClient?.id, 'view']">{{ article.ligneLivClient?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/article', article.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

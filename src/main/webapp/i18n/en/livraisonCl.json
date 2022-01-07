@@ -1,0 +1,31 @@
+{
+  "myCrMv1App": {
+    "livraisonCl": {
+      "home": {
+        "title": "Livraison Cls",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Livraison Cl",
+        "createOrEditLabel": "Create or edit a Livraison Cl",
+        "notFound": "No Livraison Cls found"
+      },
+      "created": "A new Livraison Cl is created with identifier {{ param }}",
+      "updated": "A Livraison Cl is updated with identifier {{ param }}",
+      "deleted": "A Livraison Cl is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Livraison Cl {{ id }}?"
+      },
+      "detail": {
+        "title": "Livraison Cl"
+      },
+      "id": "ID",
+      "bonLivIdentCl": "Bon Liv Ident Cl",
+      "livDateCl": "Liv Date Cl",
+      "livDateUpdateCl": "Liv Date Update Cl",
+      "livDateEffetCl": "Liv Date Effet Cl",
+      "bonLivTotalCl": "Bon Liv Total Cl",
+      "ligneLivClient": "Ligne Liv Client",
+      "commandeClient": "Commande Client",
+      "factureVente": "Facture Vente"
+    }
+  }
+}

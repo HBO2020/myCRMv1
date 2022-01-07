@@ -1,0 +1,126 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-payement-fournisseur-heading"
+        data-cy="PayementFournisseurCreateUpdateHeading"
+        jhiTranslate="myCrMv1App.payementFournisseur.home.createOrEditLabel"
+      >
+        Create or edit a Payement Fournisseur
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.payementFournisseur.payementFrIdent" for="field_payementFrIdent"
+            >Payement Fr Ident</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="payementFrIdent"
+            id="field_payementFrIdent"
+            data-cy="payementFrIdent"
+            formControlName="payementFrIdent"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.payementFournisseur.payementFrDate" for="field_payementFrDate"
+            >Payement Fr Date</label
+          >
+          <div class="input-group">
+            <input
+              id="field_payementFrDate"
+              data-cy="payementFrDate"
+              type="text"
+              class="form-control"
+              name="payementFrDate"
+              ngbDatepicker
+              #payementFrDateDp="ngbDatepicker"
+              formControlName="payementFrDate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="payementFrDateDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.payementFournisseur.payementFrMode" for="field_payementFrMode"
+            >Payement Fr Mode</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="payementFrMode"
+            id="field_payementFrMode"
+            data-cy="payementFrMode"
+            formControlName="payementFrMode"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.payementFournisseur.payementFrEcheance" for="field_payementFrEcheance"
+            >Payement Fr Echeance</label
+          >
+          <div class="input-group">
+            <input
+              id="field_payementFrEcheance"
+              data-cy="payementFrEcheance"
+              type="text"
+              class="form-control"
+              name="payementFrEcheance"
+              ngbDatepicker
+              #payementFrEcheanceDp="ngbDatepicker"
+              formControlName="payementFrEcheance"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="payementFrEcheanceDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.payementFournisseur.payementFrMontant" for="field_payementFrMontant"
+            >Payement Fr Montant</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="payementFrMontant"
+            id="field_payementFrMontant"
+            data-cy="payementFrMontant"
+            formControlName="payementFrMontant"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

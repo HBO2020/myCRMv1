@@ -1,0 +1,126 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-payement-client-heading"
+        data-cy="PayementClientCreateUpdateHeading"
+        jhiTranslate="myCrMv1App.payementClient.home.createOrEditLabel"
+      >
+        Create or edit a Payement Client
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.payementClient.payementClIdent" for="field_payementClIdent"
+            >Payement Cl Ident</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="payementClIdent"
+            id="field_payementClIdent"
+            data-cy="payementClIdent"
+            formControlName="payementClIdent"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.payementClient.payementClDate" for="field_payementClDate"
+            >Payement Cl Date</label
+          >
+          <div class="input-group">
+            <input
+              id="field_payementClDate"
+              data-cy="payementClDate"
+              type="text"
+              class="form-control"
+              name="payementClDate"
+              ngbDatepicker
+              #payementClDateDp="ngbDatepicker"
+              formControlName="payementClDate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="payementClDateDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.payementClient.payementClMode" for="field_payementClMode"
+            >Payement Cl Mode</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="payementClMode"
+            id="field_payementClMode"
+            data-cy="payementClMode"
+            formControlName="payementClMode"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.payementClient.payementClEcheance" for="field_payementClEcheance"
+            >Payement Cl Echeance</label
+          >
+          <div class="input-group">
+            <input
+              id="field_payementClEcheance"
+              data-cy="payementClEcheance"
+              type="text"
+              class="form-control"
+              name="payementClEcheance"
+              ngbDatepicker
+              #payementClEcheanceDp="ngbDatepicker"
+              formControlName="payementClEcheance"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="payementClEcheanceDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.payementClient.payementClMontant" for="field_payementClMontant"
+            >Payement Cl Montant</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="payementClMontant"
+            id="field_payementClMontant"
+            data-cy="payementClMontant"
+            formControlName="payementClMontant"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

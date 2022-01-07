@@ -1,0 +1,26 @@
+{
+  "myCrMv1App": {
+    "civiliteClient": {
+      "home": {
+        "title": "CiviliteClients",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Civilite Client",
+        "createOrEditLabel": "Créer ou éditer un Civilite Client",
+        "notFound": "Aucun Civilite Client trouvé"
+      },
+      "created": "Un nouveau Civilite Client a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Civilite Client avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Civilite Client avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Civilite Client {{ id }} ?"
+      },
+      "detail": {
+        "title": "Civilite Client"
+      },
+      "id": "ID",
+      "civiliteLibelleCl": "Civilite Libelle Cl",
+      "civiliteCodeCl": "Civilite Code Cl",
+      "client": "Client"
+    }
+  }
+}

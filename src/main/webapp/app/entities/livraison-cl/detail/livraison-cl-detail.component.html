@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="livraisonCl">
+      <h2 data-cy="livraisonClDetailsHeading"><span jhiTranslate="myCrMv1App.livraisonCl.detail.title">Livraison Cl</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ livraisonCl.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.livraisonCl.bonLivIdentCl">Bon Liv Ident Cl</span></dt>
+        <dd>
+          <span>{{ livraisonCl.bonLivIdentCl }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.livraisonCl.livDateCl">Liv Date Cl</span></dt>
+        <dd>
+          <span>{{ livraisonCl.livDateCl | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.livraisonCl.livDateUpdateCl">Liv Date Update Cl</span></dt>
+        <dd>
+          <span>{{ livraisonCl.livDateUpdateCl | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.livraisonCl.livDateEffetCl">Liv Date Effet Cl</span></dt>
+        <dd>
+          <span>{{ livraisonCl.livDateEffetCl | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.livraisonCl.bonLivTotalCl">Bon Liv Total Cl</span></dt>
+        <dd>
+          <span>{{ livraisonCl.bonLivTotalCl }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/livraison-cl', livraisonCl.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

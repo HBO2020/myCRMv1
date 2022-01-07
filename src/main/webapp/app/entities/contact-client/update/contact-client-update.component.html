@@ -1,0 +1,121 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-contact-client-heading"
+        data-cy="ContactClientCreateUpdateHeading"
+        jhiTranslate="myCrMv1App.contactClient.home.createOrEditLabel"
+      >
+        Create or edit a Contact Client
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.contactClient.contactNameCl" for="field_contactNameCl"
+            >Contact Name Cl</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="contactNameCl"
+            id="field_contactNameCl"
+            data-cy="contactNameCl"
+            formControlName="contactNameCl"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.contactClient.contactPrenomCl" for="field_contactPrenomCl"
+            >Contact Prenom Cl</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="contactPrenomCl"
+            id="field_contactPrenomCl"
+            data-cy="contactPrenomCl"
+            formControlName="contactPrenomCl"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.contactClient.contactEmailCl" for="field_contactEmailCl"
+            >Contact Email Cl</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="contactEmailCl"
+            id="field_contactEmailCl"
+            data-cy="contactEmailCl"
+            formControlName="contactEmailCl"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.contactClient.contactMobilePhoneCl" for="field_contactMobilePhoneCl"
+            >Contact Mobile Phone Cl</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="contactMobilePhoneCl"
+            id="field_contactMobilePhoneCl"
+            data-cy="contactMobilePhoneCl"
+            formControlName="contactMobilePhoneCl"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.contactClient.contactStatusCl" for="field_contactStatusCl"
+            >Contact Status Cl</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="contactStatusCl"
+            id="field_contactStatusCl"
+            data-cy="contactStatusCl"
+            formControlName="contactStatusCl"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.contactClient.client" for="field_client">Client</label>
+          <select class="form-control" id="field_client" data-cy="client" name="client" formControlName="client">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="clientOption.id === editForm.get('client')!.value?.id ? editForm.get('client')!.value : clientOption"
+              *ngFor="let clientOption of clientsSharedCollection; trackBy: trackClientById"
+            >
+              {{ clientOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

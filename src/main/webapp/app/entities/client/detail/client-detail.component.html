@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="client">
+      <h2 data-cy="clientDetailsHeading"><span jhiTranslate="myCrMv1App.client.detail.title">Client</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ client.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.client.clIdent">Cl Ident</span></dt>
+        <dd>
+          <span>{{ client.clIdent }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.client.clRaisonSocial">Cl Raison Social</span></dt>
+        <dd>
+          <span>{{ client.clRaisonSocial }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.client.clAdresse">Cl Adresse</span></dt>
+        <dd>
+          <span>{{ client.clAdresse }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.client.clCodePostal">Cl Code Postal</span></dt>
+        <dd>
+          <span>{{ client.clCodePostal }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.client.clVille">Cl Ville</span></dt>
+        <dd>
+          <span>{{ client.clVille }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.client.clCountry">Cl Country</span></dt>
+        <dd>
+          <span>{{ client.clCountry }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.client.clEmail">Cl Email</span></dt>
+        <dd>
+          <span>{{ client.clEmail }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.client.clNumeroMobile">Cl Numero Mobile</span></dt>
+        <dd>
+          <span>{{ client.clNumeroMobile }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.client.clNumeroFax">Cl Numero Fax</span></dt>
+        <dd>
+          <span>{{ client.clNumeroFax }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.client.clNumeroFixe">Cl Numero Fixe</span></dt>
+        <dd>
+          <span>{{ client.clNumeroFixe }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.client.clDateCreation">Cl Date Creation</span></dt>
+        <dd>
+          <span>{{ client.clDateCreation | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.client.clDateUpdate">Cl Date Update</span></dt>
+        <dd>
+          <span>{{ client.clDateUpdate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.client.clStatus">Cl Status</span></dt>
+        <dd>
+          <span>{{ client.clStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.client.clNumeroSiret">Cl Numero Siret</span></dt>
+        <dd>
+          <span>{{ client.clNumeroSiret }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.client.civilitecl">Civilitecl</span></dt>
+        <dd>
+          <div *ngIf="client.civilitecl">
+            <a [routerLink]="['/civilite-client', client.civilitecl?.id, 'view']">{{ client.civilitecl?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/client', client.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

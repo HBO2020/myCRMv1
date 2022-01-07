@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity ContactFournisseur.
+    -->
+    <changeSet id="20220107134240-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="fournisseur_id"
+                                 baseTableName="contact_fournisseur"
+                                 constraintName="fk_contact_fournisseur__fournisseur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fournisseur"/>
+    </changeSet>
+</databaseChangeLog>

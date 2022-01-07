@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Article.
+    -->
+    <changeSet id="20220107134232-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="ligne_cmd_fournisseur_id"
+                                 baseTableName="article"
+                                 constraintName="fk_article__ligne_cmd_fournisseur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ligne_cmd_fournisseur"/>
+
+        <addForeignKeyConstraint baseColumnNames="ligne_liv_fournisseur_id"
+                                 baseTableName="article"
+                                 constraintName="fk_article__ligne_liv_fournisseur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ligne_liv_fournisseur"/>
+
+        <addForeignKeyConstraint baseColumnNames="unite_article_id"
+                                 baseTableName="article"
+                                 constraintName="fk_article__unite_article_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="unite_article"/>
+
+        <addForeignKeyConstraint baseColumnNames="ligne_cmd_client_id"
+                                 baseTableName="article"
+                                 constraintName="fk_article__ligne_cmd_client_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ligne_cmd_client"/>
+
+        <addForeignKeyConstraint baseColumnNames="ligne_liv_client_id"
+                                 baseTableName="article"
+                                 constraintName="fk_article__ligne_liv_client_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ligne_liv_client"/>
+    </changeSet>
+</databaseChangeLog>

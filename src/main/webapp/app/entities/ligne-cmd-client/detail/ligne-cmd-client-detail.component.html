@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ligneCmdClient">
+      <h2 data-cy="ligneCmdClientDetailsHeading"><span jhiTranslate="myCrMv1App.ligneCmdClient.detail.title">Ligne Cmd Client</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ ligneCmdClient.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.ligneCmdClient.cmdQnCl">Cmd Qn Cl</span></dt>
+        <dd>
+          <span>{{ ligneCmdClient.cmdQnCl }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.ligneCmdClient.cmdNmPiecesCl">Cmd Nm Pieces Cl</span></dt>
+        <dd>
+          <span>{{ ligneCmdClient.cmdNmPiecesCl }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.ligneCmdClient.commandeClient">Commande Client</span></dt>
+        <dd>
+          <div *ngIf="ligneCmdClient.commandeClient">
+            <a [routerLink]="['/commande-client', ligneCmdClient.commandeClient?.id, 'view']">{{ ligneCmdClient.commandeClient?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ligne-cmd-client', ligneCmdClient.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

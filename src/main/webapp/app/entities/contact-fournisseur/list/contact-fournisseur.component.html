@@ -1,0 +1,92 @@
+<div>
+  <h2 id="page-heading" data-cy="ContactFournisseurHeading">
+    <span jhiTranslate="myCrMv1App.contactFournisseur.home.title">Contact Fournisseurs</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="myCrMv1App.contactFournisseur.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-contact-fournisseur"
+        [routerLink]="['/contact-fournisseur/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="myCrMv1App.contactFournisseur.home.createLabel"> Create a new Contact Fournisseur </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="contactFournisseurs?.length === 0">
+    <span jhiTranslate="myCrMv1App.contactFournisseur.home.notFound">No contactFournisseurs found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="contactFournisseurs && contactFournisseurs.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="myCrMv1App.contactFournisseur.contactFrName">Contact Fr Name</span></th>
+          <th scope="col"><span jhiTranslate="myCrMv1App.contactFournisseur.contactfrPrenom">Contactfr Prenom</span></th>
+          <th scope="col"><span jhiTranslate="myCrMv1App.contactFournisseur.contactFrEmail">Contact Fr Email</span></th>
+          <th scope="col"><span jhiTranslate="myCrMv1App.contactFournisseur.contactFrMobilePhone">Contact Fr Mobile Phone</span></th>
+          <th scope="col"><span jhiTranslate="myCrMv1App.contactFournisseur.contactFrStatus">Contact Fr Status</span></th>
+          <th scope="col"><span jhiTranslate="myCrMv1App.contactFournisseur.fournisseur">Fournisseur</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contactFournisseur of contactFournisseurs; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/contact-fournisseur', contactFournisseur.id, 'view']">{{ contactFournisseur.id }}</a>
+          </td>
+          <td>{{ contactFournisseur.contactFrName }}</td>
+          <td>{{ contactFournisseur.contactfrPrenom }}</td>
+          <td>{{ contactFournisseur.contactFrEmail }}</td>
+          <td>{{ contactFournisseur.contactFrMobilePhone }}</td>
+          <td>{{ contactFournisseur.contactFrStatus }}</td>
+          <td>
+            <div *ngIf="contactFournisseur.fournisseur">
+              <a [routerLink]="['/fournisseur', contactFournisseur.fournisseur?.id, 'view']">{{ contactFournisseur.fournisseur?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/contact-fournisseur', contactFournisseur.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/contact-fournisseur', contactFournisseur.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(contactFournisseur)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="fournisseur">
+      <h2 data-cy="fournisseurDetailsHeading"><span jhiTranslate="myCrMv1App.fournisseur.detail.title">Fournisseur</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ fournisseur.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.fournisseur.frIdent">Fr Ident</span></dt>
+        <dd>
+          <span>{{ fournisseur.frIdent }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.fournisseur.frRaisonSocial">Fr Raison Social</span></dt>
+        <dd>
+          <span>{{ fournisseur.frRaisonSocial }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.fournisseur.frAdresse">Fr Adresse</span></dt>
+        <dd>
+          <span>{{ fournisseur.frAdresse }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.fournisseur.frCodePostal">Fr Code Postal</span></dt>
+        <dd>
+          <span>{{ fournisseur.frCodePostal }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.fournisseur.frVille">Fr Ville</span></dt>
+        <dd>
+          <span>{{ fournisseur.frVille }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.fournisseur.frCountry">Fr Country</span></dt>
+        <dd>
+          <span>{{ fournisseur.frCountry }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.fournisseur.frEmail">Fr Email</span></dt>
+        <dd>
+          <span>{{ fournisseur.frEmail }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.fournisseur.frNumeroMobile">Fr Numero Mobile</span></dt>
+        <dd>
+          <span>{{ fournisseur.frNumeroMobile }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.fournisseur.frNumeroFax">Fr Numero Fax</span></dt>
+        <dd>
+          <span>{{ fournisseur.frNumeroFax }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.fournisseur.frNumeroFixe">Fr Numero Fixe</span></dt>
+        <dd>
+          <span>{{ fournisseur.frNumeroFixe }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.fournisseur.frDateCreation">Fr Date Creation</span></dt>
+        <dd>
+          <span>{{ fournisseur.frDateCreation | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.fournisseur.frDateUpdate">Fr Date Update</span></dt>
+        <dd>
+          <span>{{ fournisseur.frDateUpdate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.fournisseur.frStatus">Fr Status</span></dt>
+        <dd>
+          <span>{{ fournisseur.frStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.fournisseur.frNumeroSiret">Fr Numero Siret</span></dt>
+        <dd>
+          <span>{{ fournisseur.frNumeroSiret }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.fournisseur.civilitefr">Civilitefr</span></dt>
+        <dd>
+          <div *ngIf="fournisseur.civilitefr">
+            <a [routerLink]="['/civilite-fournisseur', fournisseur.civilitefr?.id, 'view']">{{ fournisseur.civilitefr?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/fournisseur', fournisseur.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

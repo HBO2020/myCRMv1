@@ -1,0 +1,29 @@
+{
+  "myCrMv1App": {
+    "contactClient": {
+      "home": {
+        "title": "Contact Clients",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Contact Client",
+        "createOrEditLabel": "Create or edit a Contact Client",
+        "notFound": "No Contact Clients found"
+      },
+      "created": "A new Contact Client is created with identifier {{ param }}",
+      "updated": "A Contact Client is updated with identifier {{ param }}",
+      "deleted": "A Contact Client is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Contact Client {{ id }}?"
+      },
+      "detail": {
+        "title": "Contact Client"
+      },
+      "id": "ID",
+      "contactNameCl": "Contact Name Cl",
+      "contactPrenomCl": "Contact Prenom Cl",
+      "contactEmailCl": "Contact Email Cl",
+      "contactMobilePhoneCl": "Contact Mobile Phone Cl",
+      "contactStatusCl": "Contact Status Cl",
+      "client": "Client"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "name": "LivraisonCl",
+  "fields": [
+    {
+      "fieldName": "bonLivIdentCl",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "livDateCl",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "livDateUpdateCl",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "livDateEffetCl",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "bonLivTotalCl",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "ligneLivClient",
+      "otherEntityRelationshipName": "livraisonCl",
+      "relationshipName": "ligneLivClient"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "commandeClient",
+      "otherEntityRelationshipName": "livraisonCl",
+      "relationshipName": "commandeClient"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "factureVente",
+      "otherEntityRelationshipName": "livraisonCl",
+      "relationshipName": "factureVente"
+    }
+  ],
+  "entityTableName": "livraison_cl",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220107134246"
+}

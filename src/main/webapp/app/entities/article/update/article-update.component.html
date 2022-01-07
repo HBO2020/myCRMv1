@@ -1,0 +1,288 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-article-heading" data-cy="ArticleCreateUpdateHeading" jhiTranslate="myCrMv1App.article.home.createOrEditLabel">
+        Create or edit a Article
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.article.artclIden" for="field_artclIden">Artcl Iden</label>
+          <input type="number" class="form-control" name="artclIden" id="field_artclIden" data-cy="artclIden" formControlName="artclIden" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.article.artclReference" for="field_artclReference"
+            >Artcl Reference</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="artclReference"
+            id="field_artclReference"
+            data-cy="artclReference"
+            formControlName="artclReference"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.article.artclDesignation" for="field_artclDesignation"
+            >Artcl Designation</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="artclDesignation"
+            id="field_artclDesignation"
+            data-cy="artclDesignation"
+            formControlName="artclDesignation"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.article.artclQnStock" for="field_artclQnStock">Artcl Qn Stock</label>
+          <input
+            type="number"
+            class="form-control"
+            name="artclQnStock"
+            id="field_artclQnStock"
+            data-cy="artclQnStock"
+            formControlName="artclQnStock"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.article.artclImg" for="field_artclImg">Artcl Img</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('artclImgContentType')!.value + ';base64,' + editForm.get('artclImg')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('artclImg')!.value"
+              alt="article image"
+            />
+            <div *ngIf="editForm.get('artclImg')!.value" class="form-text text-danger clearfix">
+              <span class="pull-left"
+                >{{ editForm.get('artclImgContentType')!.value }}, {{ byteSize(editForm.get('artclImg')!.value) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('artclImg', 'artclImgContentType', 'file_artclImg')"
+                class="btn btn-secondary btn-xs pull-right"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_artclImg"
+              data-cy="artclImg"
+              (change)="setFileData($event, 'artclImg', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="artclImg" id="field_artclImg" data-cy="artclImg" formControlName="artclImg" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="artclImgContentType"
+            id="field_artclImgContentType"
+            formControlName="artclImgContentType"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.article.artclSerie" for="field_artclSerie">Artcl Serie</label>
+          <input
+            type="text"
+            class="form-control"
+            name="artclSerie"
+            id="field_artclSerie"
+            data-cy="artclSerie"
+            formControlName="artclSerie"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.article.artclPrixAchat" for="field_artclPrixAchat"
+            >Artcl Prix Achat</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="artclPrixAchat"
+            id="field_artclPrixAchat"
+            data-cy="artclPrixAchat"
+            formControlName="artclPrixAchat"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.article.artclPxAchatTotal" for="field_artclPxAchatTotal"
+            >Artcl Px Achat Total</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="artclPxAchatTotal"
+            id="field_artclPxAchatTotal"
+            data-cy="artclPxAchatTotal"
+            formControlName="artclPxAchatTotal"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.article.artclPxVenteTotal" for="field_artclPxVenteTotal"
+            >Artcl Px Vente Total</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="artclPxVenteTotal"
+            id="field_artclPxVenteTotal"
+            data-cy="artclPxVenteTotal"
+            formControlName="artclPxVenteTotal"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.article.ligneCmdFournisseur" for="field_ligneCmdFournisseur"
+            >Ligne Cmd Fournisseur</label
+          >
+          <select
+            class="form-control"
+            id="field_ligneCmdFournisseur"
+            data-cy="ligneCmdFournisseur"
+            name="ligneCmdFournisseur"
+            formControlName="ligneCmdFournisseur"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                ligneCmdFournisseurOption.id === editForm.get('ligneCmdFournisseur')!.value?.id
+                  ? editForm.get('ligneCmdFournisseur')!.value
+                  : ligneCmdFournisseurOption
+              "
+              *ngFor="let ligneCmdFournisseurOption of ligneCmdFournisseursSharedCollection; trackBy: trackLigneCmdFournisseurById"
+            >
+              {{ ligneCmdFournisseurOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.article.ligneLivFournisseur" for="field_ligneLivFournisseur"
+            >Ligne Liv Fournisseur</label
+          >
+          <select
+            class="form-control"
+            id="field_ligneLivFournisseur"
+            data-cy="ligneLivFournisseur"
+            name="ligneLivFournisseur"
+            formControlName="ligneLivFournisseur"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                ligneLivFournisseurOption.id === editForm.get('ligneLivFournisseur')!.value?.id
+                  ? editForm.get('ligneLivFournisseur')!.value
+                  : ligneLivFournisseurOption
+              "
+              *ngFor="let ligneLivFournisseurOption of ligneLivFournisseursSharedCollection; trackBy: trackLigneLivFournisseurById"
+            >
+              {{ ligneLivFournisseurOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.article.uniteArticle" for="field_uniteArticle">Unite Article</label>
+          <select class="form-control" id="field_uniteArticle" data-cy="uniteArticle" name="uniteArticle" formControlName="uniteArticle">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                uniteArticleOption.id === editForm.get('uniteArticle')!.value?.id ? editForm.get('uniteArticle')!.value : uniteArticleOption
+              "
+              *ngFor="let uniteArticleOption of uniteArticlesSharedCollection; trackBy: trackUniteArticleById"
+            >
+              {{ uniteArticleOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.article.ligneCmdClient" for="field_ligneCmdClient"
+            >Ligne Cmd Client</label
+          >
+          <select
+            class="form-control"
+            id="field_ligneCmdClient"
+            data-cy="ligneCmdClient"
+            name="ligneCmdClient"
+            formControlName="ligneCmdClient"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                ligneCmdClientOption.id === editForm.get('ligneCmdClient')!.value?.id
+                  ? editForm.get('ligneCmdClient')!.value
+                  : ligneCmdClientOption
+              "
+              *ngFor="let ligneCmdClientOption of ligneCmdClientsSharedCollection; trackBy: trackLigneCmdClientById"
+            >
+              {{ ligneCmdClientOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.article.ligneLivClient" for="field_ligneLivClient"
+            >Ligne Liv Client</label
+          >
+          <select
+            class="form-control"
+            id="field_ligneLivClient"
+            data-cy="ligneLivClient"
+            name="ligneLivClient"
+            formControlName="ligneLivClient"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                ligneLivClientOption.id === editForm.get('ligneLivClient')!.value?.id
+                  ? editForm.get('ligneLivClient')!.value
+                  : ligneLivClientOption
+              "
+              *ngFor="let ligneLivClientOption of ligneLivClientsSharedCollection; trackBy: trackLigneLivClientById"
+            >
+              {{ ligneLivClientOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

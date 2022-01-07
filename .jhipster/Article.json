@@ -1,0 +1,84 @@
+{
+  "name": "Article",
+  "fields": [
+    {
+      "fieldName": "artclIden",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "artclReference",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "artclDesignation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "artclQnStock",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "artclImg",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "artclSerie",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "artclPrixAchat",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "artclPxAchatTotal",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "artclPxVenteTotal",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "ligneCmdFournisseur",
+      "otherEntityRelationshipName": "article",
+      "relationshipName": "ligneCmdFournisseur"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "ligneLivFournisseur",
+      "otherEntityRelationshipName": "article",
+      "relationshipName": "ligneLivFournisseur"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "uniteArticle",
+      "otherEntityRelationshipName": "article",
+      "relationshipName": "uniteArticle"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "ligneCmdClient",
+      "otherEntityRelationshipName": "article",
+      "relationshipName": "ligneCmdClient"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "ligneLivClient",
+      "otherEntityRelationshipName": "article",
+      "relationshipName": "ligneLivClient"
+    }
+  ],
+  "entityTableName": "article",
+  "dto": "no",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220107134232"
+}

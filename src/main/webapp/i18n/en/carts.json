@@ -1,0 +1,26 @@
+{
+  "myCrMv1App": {
+    "carts": {
+      "home": {
+        "title": "Carts",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Carts",
+        "createOrEditLabel": "Create or edit a Carts",
+        "notFound": "No Carts found"
+      },
+      "created": "A new Carts is created with identifier {{ param }}",
+      "updated": "A Carts is updated with identifier {{ param }}",
+      "deleted": "A Carts is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Carts {{ id }}?"
+      },
+      "detail": {
+        "title": "Carts"
+      },
+      "id": "ID",
+      "cartIsEmpty": "Cart Is Empty",
+      "cartUserEmail": "Cart User Email",
+      "cartListProduct": "Cart List Product"
+    }
+  }
+}

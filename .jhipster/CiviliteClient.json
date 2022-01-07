@@ -1,0 +1,31 @@
+{
+  "name": "CiviliteClient",
+  "fields": [
+    {
+      "fieldName": "civiliteLibelleCl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "civiliteCodeCl",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "client",
+      "otherEntityRelationshipName": "civilitecl",
+      "relationshipName": "client"
+    }
+  ],
+  "entityTableName": "civilite_client",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220107134250"
+}

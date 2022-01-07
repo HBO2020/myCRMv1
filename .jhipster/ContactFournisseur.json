@@ -1,0 +1,43 @@
+{
+  "name": "ContactFournisseur",
+  "fields": [
+    {
+      "fieldName": "contactFrName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contactfrPrenom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contactFrEmail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contactFrMobilePhone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contactFrStatus",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "fournisseur",
+      "otherEntityRelationshipName": "contactFournisseur",
+      "relationshipName": "fournisseur"
+    }
+  ],
+  "entityTableName": "contact_fournisseur",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220107134240"
+}

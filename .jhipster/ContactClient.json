@@ -1,0 +1,43 @@
+{
+  "name": "ContactClient",
+  "fields": [
+    {
+      "fieldName": "contactNameCl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contactPrenomCl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contactEmailCl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contactMobilePhoneCl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contactStatusCl",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "client",
+      "otherEntityRelationshipName": "contactClient",
+      "relationshipName": "client"
+    }
+  ],
+  "entityTableName": "contact_client",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220107134249"
+}

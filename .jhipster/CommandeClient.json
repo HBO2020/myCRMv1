@@ -1,0 +1,47 @@
+{
+  "name": "CommandeClient",
+  "fields": [
+    {
+      "fieldName": "cmdIdenCl",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "cmdDateEffetCl",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "cmdDateLivraisonCl",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "ligneCmdClient",
+      "otherEntityRelationshipName": "commandeClient",
+      "relationshipName": "ligneCmdClient"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "client",
+      "otherEntityRelationshipName": "commandeClient",
+      "relationshipName": "client"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "livraisonCl",
+      "otherEntityRelationshipName": "commandeClient",
+      "relationshipName": "livraisonCl"
+    }
+  ],
+  "entityTableName": "commande_client",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220107134244"
+}

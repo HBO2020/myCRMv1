@@ -1,0 +1,120 @@
+<div>
+  <h2 id="page-heading" data-cy="FactureAchatHeading">
+    <span jhiTranslate="myCrMv1App.factureAchat.home.title">Facture Achats</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="myCrMv1App.factureAchat.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-facture-achat"
+        [routerLink]="['/facture-achat/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="myCrMv1App.factureAchat.home.createLabel"> Create a new Facture Achat </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="factureAchats?.length === 0">
+    <span jhiTranslate="myCrMv1App.factureAchat.home.notFound">No factureAchats found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="factureAchats && factureAchats.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="myCrMv1App.factureAchat.achatIdentFac">Achat Ident Fac</span></th>
+          <th scope="col"><span jhiTranslate="myCrMv1App.factureAchat.achatDateEffet">Achat Date Effet</span></th>
+          <th scope="col"><span jhiTranslate="myCrMv1App.factureAchat.achatDateUpdate">Achat Date Update</span></th>
+          <th scope="col"><span jhiTranslate="myCrMv1App.factureAchat.achatStatusFact">Achat Status Fact</span></th>
+          <th scope="col"><span jhiTranslate="myCrMv1App.factureAchat.achatMontantHT">Achat Montant HT</span></th>
+          <th scope="col"><span jhiTranslate="myCrMv1App.factureAchat.achatMontantTVA">Achat Montant TVA</span></th>
+          <th scope="col"><span jhiTranslate="myCrMv1App.factureAchat.achatMontantTTC">Achat Montant TTC</span></th>
+          <th scope="col"><span jhiTranslate="myCrMv1App.factureAchat.fournisseur">Fournisseur</span></th>
+          <th scope="col"><span jhiTranslate="myCrMv1App.factureAchat.payementFr">Payement Fr</span></th>
+          <th scope="col"><span jhiTranslate="myCrMv1App.factureAchat.livraisonFr">Livraison Fr</span></th>
+          <th scope="col"><span jhiTranslate="myCrMv1App.factureAchat.client">Client</span></th>
+          <th scope="col"><span jhiTranslate="myCrMv1App.factureAchat.payementCl">Payement Cl</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let factureAchat of factureAchats; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/facture-achat', factureAchat.id, 'view']">{{ factureAchat.id }}</a>
+          </td>
+          <td>{{ factureAchat.achatIdentFac }}</td>
+          <td>{{ factureAchat.achatDateEffet | formatMediumDate }}</td>
+          <td>{{ factureAchat.achatDateUpdate | formatMediumDate }}</td>
+          <td>{{ factureAchat.achatStatusFact }}</td>
+          <td>{{ factureAchat.achatMontantHT }}</td>
+          <td>{{ factureAchat.achatMontantTVA }}</td>
+          <td>{{ factureAchat.achatMontantTTC }}</td>
+          <td>
+            <div *ngIf="factureAchat.fournisseur">
+              <a [routerLink]="['/fournisseur', factureAchat.fournisseur?.id, 'view']">{{ factureAchat.fournisseur?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="factureAchat.payementFr">
+              <a [routerLink]="['/payement-fournisseur', factureAchat.payementFr?.id, 'view']">{{ factureAchat.payementFr?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="factureAchat.livraisonFr">
+              <a [routerLink]="['/livraison-fr', factureAchat.livraisonFr?.id, 'view']">{{ factureAchat.livraisonFr?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="factureAchat.client">
+              <a [routerLink]="['/client', factureAchat.client?.id, 'view']">{{ factureAchat.client?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="factureAchat.payementCl">
+              <a [routerLink]="['/payement-client', factureAchat.payementCl?.id, 'view']">{{ factureAchat.payementCl?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/facture-achat', factureAchat.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/facture-achat', factureAchat.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(factureAchat)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

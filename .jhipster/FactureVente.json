@@ -1,0 +1,51 @@
+{
+  "name": "FactureVente",
+  "fields": [
+    {
+      "fieldName": "venteIdentFac",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "venteDateEffet",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "venteDateUpdate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "venteStatusFact",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "venteMontantHT",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "venteMontantTVA",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "venteMontantTTC",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "livraisonCl",
+      "otherEntityRelationshipName": "factureVente",
+      "relationshipName": "livraisonCl"
+    }
+  ],
+  "entityTableName": "facture_vente",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220107134245"
+}

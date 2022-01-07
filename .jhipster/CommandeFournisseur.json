@@ -1,0 +1,47 @@
+{
+  "name": "CommandeFournisseur",
+  "fields": [
+    {
+      "fieldName": "cmdIdenFr",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "cmdDateEffetFr",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "cmdDateLivraisonFr",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "ligneCmdFournisseur",
+      "otherEntityRelationshipName": "commandeFourniseur",
+      "relationshipName": "ligneCmdFournisseur"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "fournisseur",
+      "otherEntityRelationshipName": "commandeFournisseur",
+      "relationshipName": "fournisseur"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "livraisonFr",
+      "otherEntityRelationshipName": "commandeFournisseur",
+      "relationshipName": "livraisonFr"
+    }
+  ],
+  "entityTableName": "commande_fournisseur",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220107134235"
+}

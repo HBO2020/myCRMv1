@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity FactureAchat.
+    -->
+    <changeSet id="20220107134236-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="fournisseur_id"
+                                 baseTableName="facture_achat"
+                                 constraintName="fk_facture_achat__fournisseur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fournisseur"/>
+
+        <addForeignKeyConstraint baseColumnNames="payement_fr_id"
+                                 baseTableName="facture_achat"
+                                 constraintName="fk_facture_achat__payement_fr_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="payement_fournisseur"/>
+
+        <addForeignKeyConstraint baseColumnNames="livraison_fr_id"
+                                 baseTableName="facture_achat"
+                                 constraintName="fk_facture_achat__livraison_fr_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="livraison_fr"/>
+
+        <addForeignKeyConstraint baseColumnNames="client_id"
+                                 baseTableName="facture_achat"
+                                 constraintName="fk_facture_achat__client_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="client"/>
+
+        <addForeignKeyConstraint baseColumnNames="payement_cl_id"
+                                 baseTableName="facture_achat"
+                                 constraintName="fk_facture_achat__payement_cl_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="payement_client"/>
+    </changeSet>
+</databaseChangeLog>

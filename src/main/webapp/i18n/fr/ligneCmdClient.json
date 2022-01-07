@@ -1,0 +1,27 @@
+{
+  "myCrMv1App": {
+    "ligneCmdClient": {
+      "home": {
+        "title": "LigneCmdClients",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Ligne Cmd Client",
+        "createOrEditLabel": "Créer ou éditer un Ligne Cmd Client",
+        "notFound": "Aucun Ligne Cmd Client trouvé"
+      },
+      "created": "Un nouveau Ligne Cmd Client a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ligne Cmd Client avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ligne Cmd Client avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ligne Cmd Client {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ligne Cmd Client"
+      },
+      "id": "ID",
+      "cmdQnCl": "Cmd Qn Cl",
+      "cmdNmPiecesCl": "Cmd Nm Pieces Cl",
+      "article": "Article",
+      "commandeClient": "Commande Client"
+    }
+  }
+}

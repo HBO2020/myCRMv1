@@ -1,0 +1,41 @@
+{
+  "myCrMv1App": {
+    "client": {
+      "home": {
+        "title": "Clients",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Client",
+        "createOrEditLabel": "Create or edit a Client",
+        "notFound": "No Clients found"
+      },
+      "created": "A new Client is created with identifier {{ param }}",
+      "updated": "A Client is updated with identifier {{ param }}",
+      "deleted": "A Client is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Client {{ id }}?"
+      },
+      "detail": {
+        "title": "Client"
+      },
+      "id": "ID",
+      "clIdent": "Cl Ident",
+      "clRaisonSocial": "Cl Raison Social",
+      "clAdresse": "Cl Adresse",
+      "clCodePostal": "Cl Code Postal",
+      "clVille": "Cl Ville",
+      "clCountry": "Cl Country",
+      "clEmail": "Cl Email",
+      "clNumeroMobile": "Cl Numero Mobile",
+      "clNumeroFax": "Cl Numero Fax",
+      "clNumeroFixe": "Cl Numero Fixe",
+      "clDateCreation": "Cl Date Creation",
+      "clDateUpdate": "Cl Date Update",
+      "clStatus": "Cl Status",
+      "clNumeroSiret": "Cl Numero Siret",
+      "commandeClient": "Commande Client",
+      "factureAchat": "Facture Achat",
+      "contactClient": "Contact Client",
+      "civilitecl": "Civilitecl"
+    }
+  }
+}

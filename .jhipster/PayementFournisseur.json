@@ -1,0 +1,43 @@
+{
+  "name": "PayementFournisseur",
+  "fields": [
+    {
+      "fieldName": "payementFrIdent",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "payementFrDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "payementFrMode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "payementFrEcheance",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "payementFrMontant",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "factureAchat",
+      "otherEntityRelationshipName": "payementFr",
+      "relationshipName": "factureAchat"
+    }
+  ],
+  "entityTableName": "payement_fournisseur",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220107134239"
+}

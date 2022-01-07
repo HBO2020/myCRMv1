@@ -1,0 +1,35 @@
+{
+  "myCrMv1App": {
+    "factureAchat": {
+      "home": {
+        "title": "FactureAchats",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Facture Achat",
+        "createOrEditLabel": "Créer ou éditer un Facture Achat",
+        "notFound": "Aucun Facture Achat trouvé"
+      },
+      "created": "Un nouveau Facture Achat a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Facture Achat avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Facture Achat avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Facture Achat {{ id }} ?"
+      },
+      "detail": {
+        "title": "Facture Achat"
+      },
+      "id": "ID",
+      "achatIdentFac": "Achat Ident Fac",
+      "achatDateEffet": "Achat Date Effet",
+      "achatDateUpdate": "Achat Date Update",
+      "achatStatusFact": "Achat Status Fact",
+      "achatMontantHT": "Achat Montant HT",
+      "achatMontantTVA": "Achat Montant TVA",
+      "achatMontantTTC": "Achat Montant TTC",
+      "fournisseur": "Fournisseur",
+      "payementFr": "Payement Fr",
+      "livraisonFr": "Livraison Fr",
+      "client": "Client",
+      "payementCl": "Payement Cl"
+    }
+  }
+}
