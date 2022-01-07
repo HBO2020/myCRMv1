@@ -1,0 +1,26 @@
+{
+  "myCrMv1App": {
+    "civiliteFournisseur": {
+      "home": {
+        "title": "CiviliteFournisseurs",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Civilite Fournisseur",
+        "createOrEditLabel": "Créer ou éditer un Civilite Fournisseur",
+        "notFound": "Aucun Civilite Fournisseur trouvé"
+      },
+      "created": "Un nouveau Civilite Fournisseur a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Civilite Fournisseur avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Civilite Fournisseur avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Civilite Fournisseur {{ id }} ?"
+      },
+      "detail": {
+        "title": "Civilite Fournisseur"
+      },
+      "id": "ID",
+      "civiliteFrLibelle": "Civilite Fr Libelle",
+      "civiliteFrCode": "Civilite Fr Code",
+      "fournisseur": "Fournisseur"
+    }
+  }
+}

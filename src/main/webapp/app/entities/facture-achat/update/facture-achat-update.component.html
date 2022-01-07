@@ -1,0 +1,229 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-facture-achat-heading"
+        data-cy="FactureAchatCreateUpdateHeading"
+        jhiTranslate="myCrMv1App.factureAchat.home.createOrEditLabel"
+      >
+        Create or edit a Facture Achat
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.factureAchat.achatIdentFac" for="field_achatIdentFac"
+            >Achat Ident Fac</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="achatIdentFac"
+            id="field_achatIdentFac"
+            data-cy="achatIdentFac"
+            formControlName="achatIdentFac"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.factureAchat.achatDateEffet" for="field_achatDateEffet"
+            >Achat Date Effet</label
+          >
+          <div class="input-group">
+            <input
+              id="field_achatDateEffet"
+              data-cy="achatDateEffet"
+              type="text"
+              class="form-control"
+              name="achatDateEffet"
+              ngbDatepicker
+              #achatDateEffetDp="ngbDatepicker"
+              formControlName="achatDateEffet"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="achatDateEffetDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.factureAchat.achatDateUpdate" for="field_achatDateUpdate"
+            >Achat Date Update</label
+          >
+          <div class="input-group">
+            <input
+              id="field_achatDateUpdate"
+              data-cy="achatDateUpdate"
+              type="text"
+              class="form-control"
+              name="achatDateUpdate"
+              ngbDatepicker
+              #achatDateUpdateDp="ngbDatepicker"
+              formControlName="achatDateUpdate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="achatDateUpdateDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.factureAchat.achatStatusFact" for="field_achatStatusFact"
+            >Achat Status Fact</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="achatStatusFact"
+            id="field_achatStatusFact"
+            data-cy="achatStatusFact"
+            formControlName="achatStatusFact"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.factureAchat.achatMontantHT" for="field_achatMontantHT"
+            >Achat Montant HT</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="achatMontantHT"
+            id="field_achatMontantHT"
+            data-cy="achatMontantHT"
+            formControlName="achatMontantHT"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.factureAchat.achatMontantTVA" for="field_achatMontantTVA"
+            >Achat Montant TVA</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="achatMontantTVA"
+            id="field_achatMontantTVA"
+            data-cy="achatMontantTVA"
+            formControlName="achatMontantTVA"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.factureAchat.achatMontantTTC" for="field_achatMontantTTC"
+            >Achat Montant TTC</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="achatMontantTTC"
+            id="field_achatMontantTTC"
+            data-cy="achatMontantTTC"
+            formControlName="achatMontantTTC"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.factureAchat.fournisseur" for="field_fournisseur">Fournisseur</label>
+          <select class="form-control" id="field_fournisseur" data-cy="fournisseur" name="fournisseur" formControlName="fournisseur">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                fournisseurOption.id === editForm.get('fournisseur')!.value?.id ? editForm.get('fournisseur')!.value : fournisseurOption
+              "
+              *ngFor="let fournisseurOption of fournisseursSharedCollection; trackBy: trackFournisseurById"
+            >
+              {{ fournisseurOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.factureAchat.payementFr" for="field_payementFr">Payement Fr</label>
+          <select class="form-control" id="field_payementFr" data-cy="payementFr" name="payementFr" formControlName="payementFr">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                payementFournisseurOption.id === editForm.get('payementFr')!.value?.id
+                  ? editForm.get('payementFr')!.value
+                  : payementFournisseurOption
+              "
+              *ngFor="let payementFournisseurOption of payementFournisseursSharedCollection; trackBy: trackPayementFournisseurById"
+            >
+              {{ payementFournisseurOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.factureAchat.livraisonFr" for="field_livraisonFr">Livraison Fr</label>
+          <select class="form-control" id="field_livraisonFr" data-cy="livraisonFr" name="livraisonFr" formControlName="livraisonFr">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                livraisonFrOption.id === editForm.get('livraisonFr')!.value?.id ? editForm.get('livraisonFr')!.value : livraisonFrOption
+              "
+              *ngFor="let livraisonFrOption of livraisonFrsSharedCollection; trackBy: trackLivraisonFrById"
+            >
+              {{ livraisonFrOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.factureAchat.client" for="field_client">Client</label>
+          <select class="form-control" id="field_client" data-cy="client" name="client" formControlName="client">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="clientOption.id === editForm.get('client')!.value?.id ? editForm.get('client')!.value : clientOption"
+              *ngFor="let clientOption of clientsSharedCollection; trackBy: trackClientById"
+            >
+              {{ clientOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.factureAchat.payementCl" for="field_payementCl">Payement Cl</label>
+          <select class="form-control" id="field_payementCl" data-cy="payementCl" name="payementCl" formControlName="payementCl">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                payementClientOption.id === editForm.get('payementCl')!.value?.id ? editForm.get('payementCl')!.value : payementClientOption
+              "
+              *ngFor="let payementClientOption of payementClientsSharedCollection; trackBy: trackPayementClientById"
+            >
+              {{ payementClientOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

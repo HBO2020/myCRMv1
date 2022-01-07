@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="commandeClient">
+      <h2 data-cy="commandeClientDetailsHeading"><span jhiTranslate="myCrMv1App.commandeClient.detail.title">Commande Client</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ commandeClient.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.commandeClient.cmdIdenCl">Cmd Iden Cl</span></dt>
+        <dd>
+          <span>{{ commandeClient.cmdIdenCl }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.commandeClient.cmdDateEffetCl">Cmd Date Effet Cl</span></dt>
+        <dd>
+          <span>{{ commandeClient.cmdDateEffetCl | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.commandeClient.cmdDateLivraisonCl">Cmd Date Livraison Cl</span></dt>
+        <dd>
+          <span>{{ commandeClient.cmdDateLivraisonCl | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.commandeClient.client">Client</span></dt>
+        <dd>
+          <div *ngIf="commandeClient.client">
+            <a [routerLink]="['/client', commandeClient.client?.id, 'view']">{{ commandeClient.client?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.commandeClient.livraisonCl">Livraison Cl</span></dt>
+        <dd>
+          <div *ngIf="commandeClient.livraisonCl">
+            <a [routerLink]="['/livraison-cl', commandeClient.livraisonCl?.id, 'view']">{{ commandeClient.livraisonCl?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/commande-client', commandeClient.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

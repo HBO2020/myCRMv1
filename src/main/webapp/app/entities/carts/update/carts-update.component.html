@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-carts-heading" data-cy="CartsCreateUpdateHeading" jhiTranslate="myCrMv1App.carts.home.createOrEditLabel">
+        Create or edit a Carts
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.carts.cartIsEmpty" for="field_cartIsEmpty">Cart Is Empty</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="cartIsEmpty"
+            id="field_cartIsEmpty"
+            data-cy="cartIsEmpty"
+            formControlName="cartIsEmpty"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.carts.cartUserEmail" for="field_cartUserEmail">Cart User Email</label>
+          <input
+            type="text"
+            class="form-control"
+            name="cartUserEmail"
+            id="field_cartUserEmail"
+            data-cy="cartUserEmail"
+            formControlName="cartUserEmail"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.carts.cartListProduct" for="field_cartListProduct"
+            >Cart List Product</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="cartListProduct"
+            id="field_cartListProduct"
+            data-cy="cartListProduct"
+            formControlName="cartListProduct"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

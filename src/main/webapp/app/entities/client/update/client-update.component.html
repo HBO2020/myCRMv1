@@ -1,0 +1,199 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-client-heading" data-cy="ClientCreateUpdateHeading" jhiTranslate="myCrMv1App.client.home.createOrEditLabel">
+        Create or edit a Client
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.client.clIdent" for="field_clIdent">Cl Ident</label>
+          <input type="number" class="form-control" name="clIdent" id="field_clIdent" data-cy="clIdent" formControlName="clIdent" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.client.clRaisonSocial" for="field_clRaisonSocial"
+            >Cl Raison Social</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="clRaisonSocial"
+            id="field_clRaisonSocial"
+            data-cy="clRaisonSocial"
+            formControlName="clRaisonSocial"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.client.clAdresse" for="field_clAdresse">Cl Adresse</label>
+          <input type="text" class="form-control" name="clAdresse" id="field_clAdresse" data-cy="clAdresse" formControlName="clAdresse" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.client.clCodePostal" for="field_clCodePostal">Cl Code Postal</label>
+          <input
+            type="text"
+            class="form-control"
+            name="clCodePostal"
+            id="field_clCodePostal"
+            data-cy="clCodePostal"
+            formControlName="clCodePostal"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.client.clVille" for="field_clVille">Cl Ville</label>
+          <input type="text" class="form-control" name="clVille" id="field_clVille" data-cy="clVille" formControlName="clVille" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.client.clCountry" for="field_clCountry">Cl Country</label>
+          <input type="text" class="form-control" name="clCountry" id="field_clCountry" data-cy="clCountry" formControlName="clCountry" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.client.clEmail" for="field_clEmail">Cl Email</label>
+          <input type="text" class="form-control" name="clEmail" id="field_clEmail" data-cy="clEmail" formControlName="clEmail" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.client.clNumeroMobile" for="field_clNumeroMobile"
+            >Cl Numero Mobile</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="clNumeroMobile"
+            id="field_clNumeroMobile"
+            data-cy="clNumeroMobile"
+            formControlName="clNumeroMobile"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.client.clNumeroFax" for="field_clNumeroFax">Cl Numero Fax</label>
+          <input
+            type="text"
+            class="form-control"
+            name="clNumeroFax"
+            id="field_clNumeroFax"
+            data-cy="clNumeroFax"
+            formControlName="clNumeroFax"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.client.clNumeroFixe" for="field_clNumeroFixe">Cl Numero Fixe</label>
+          <input
+            type="text"
+            class="form-control"
+            name="clNumeroFixe"
+            id="field_clNumeroFixe"
+            data-cy="clNumeroFixe"
+            formControlName="clNumeroFixe"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.client.clDateCreation" for="field_clDateCreation"
+            >Cl Date Creation</label
+          >
+          <div class="input-group">
+            <input
+              id="field_clDateCreation"
+              data-cy="clDateCreation"
+              type="text"
+              class="form-control"
+              name="clDateCreation"
+              ngbDatepicker
+              #clDateCreationDp="ngbDatepicker"
+              formControlName="clDateCreation"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="clDateCreationDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.client.clDateUpdate" for="field_clDateUpdate">Cl Date Update</label>
+          <div class="input-group">
+            <input
+              id="field_clDateUpdate"
+              data-cy="clDateUpdate"
+              type="text"
+              class="form-control"
+              name="clDateUpdate"
+              ngbDatepicker
+              #clDateUpdateDp="ngbDatepicker"
+              formControlName="clDateUpdate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="clDateUpdateDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.client.clStatus" for="field_clStatus">Cl Status</label>
+          <input type="text" class="form-control" name="clStatus" id="field_clStatus" data-cy="clStatus" formControlName="clStatus" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.client.clNumeroSiret" for="field_clNumeroSiret">Cl Numero Siret</label>
+          <input
+            type="text"
+            class="form-control"
+            name="clNumeroSiret"
+            id="field_clNumeroSiret"
+            data-cy="clNumeroSiret"
+            formControlName="clNumeroSiret"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.client.civilitecl" for="field_civilitecl">Civilitecl</label>
+          <select class="form-control" id="field_civilitecl" data-cy="civilitecl" name="civilitecl" formControlName="civilitecl">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                civiliteClientOption.id === editForm.get('civilitecl')!.value?.id ? editForm.get('civilitecl')!.value : civiliteClientOption
+              "
+              *ngFor="let civiliteClientOption of civiliteClientsSharedCollection; trackBy: trackCiviliteClientById"
+            >
+              {{ civiliteClientOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

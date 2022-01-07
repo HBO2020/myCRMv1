@@ -1,0 +1,140 @@
+<div>
+  <h2 id="page-heading" data-cy="FournisseurHeading">
+    <span jhiTranslate="myCrMv1App.fournisseur.home.title">Fournisseurs</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="reset()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="myCrMv1App.fournisseur.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-fournisseur"
+        [routerLink]="['/fournisseur/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="myCrMv1App.fournisseur.home.createLabel"> Create a new Fournisseur </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="fournisseurs?.length === 0">
+    <span jhiTranslate="myCrMv1App.fournisseur.home.notFound">No fournisseurs found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="fournisseurs && fournisseurs.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="reset()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="frIdent">
+            <span jhiTranslate="myCrMv1App.fournisseur.frIdent">Fr Ident</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="frRaisonSocial">
+            <span jhiTranslate="myCrMv1App.fournisseur.frRaisonSocial">Fr Raison Social</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="frAdresse">
+            <span jhiTranslate="myCrMv1App.fournisseur.frAdresse">Fr Adresse</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="frCodePostal">
+            <span jhiTranslate="myCrMv1App.fournisseur.frCodePostal">Fr Code Postal</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="frVille">
+            <span jhiTranslate="myCrMv1App.fournisseur.frVille">Fr Ville</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="frCountry">
+            <span jhiTranslate="myCrMv1App.fournisseur.frCountry">Fr Country</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="frEmail">
+            <span jhiTranslate="myCrMv1App.fournisseur.frEmail">Fr Email</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="frNumeroMobile">
+            <span jhiTranslate="myCrMv1App.fournisseur.frNumeroMobile">Fr Numero Mobile</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="frNumeroFax">
+            <span jhiTranslate="myCrMv1App.fournisseur.frNumeroFax">Fr Numero Fax</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="frNumeroFixe">
+            <span jhiTranslate="myCrMv1App.fournisseur.frNumeroFixe">Fr Numero Fixe</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="frDateCreation">
+            <span jhiTranslate="myCrMv1App.fournisseur.frDateCreation">Fr Date Creation</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="frDateUpdate">
+            <span jhiTranslate="myCrMv1App.fournisseur.frDateUpdate">Fr Date Update</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="frStatus">
+            <span jhiTranslate="myCrMv1App.fournisseur.frStatus">Fr Status</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="frNumeroSiret">
+            <span jhiTranslate="myCrMv1App.fournisseur.frNumeroSiret">Fr Numero Siret</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="civilitefr.id">
+            <span jhiTranslate="myCrMv1App.fournisseur.civilitefr">Civilitefr</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+        <tr *ngFor="let fournisseur of fournisseurs; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/fournisseur', fournisseur.id, 'view']">{{ fournisseur.id }}</a>
+          </td>
+          <td>{{ fournisseur.frIdent }}</td>
+          <td>{{ fournisseur.frRaisonSocial }}</td>
+          <td>{{ fournisseur.frAdresse }}</td>
+          <td>{{ fournisseur.frCodePostal }}</td>
+          <td>{{ fournisseur.frVille }}</td>
+          <td>{{ fournisseur.frCountry }}</td>
+          <td>{{ fournisseur.frEmail }}</td>
+          <td>{{ fournisseur.frNumeroMobile }}</td>
+          <td>{{ fournisseur.frNumeroFax }}</td>
+          <td>{{ fournisseur.frNumeroFixe }}</td>
+          <td>{{ fournisseur.frDateCreation | formatMediumDate }}</td>
+          <td>{{ fournisseur.frDateUpdate | formatMediumDate }}</td>
+          <td>{{ fournisseur.frStatus }}</td>
+          <td>{{ fournisseur.frNumeroSiret }}</td>
+          <td>
+            <div *ngIf="fournisseur.civilitefr">
+              <a [routerLink]="['/civilite-fournisseur', fournisseur.civilitefr?.id, 'view']">{{ fournisseur.civilitefr?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/fournisseur', fournisseur.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/fournisseur', fournisseur.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(fournisseur)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

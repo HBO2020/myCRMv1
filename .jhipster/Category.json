@@ -1,0 +1,25 @@
+{
+  "name": "Category",
+  "fields": [
+    {
+      "fieldName": "categoryName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "categoryDesciption",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "javadoc": "The category entity",
+  "entityTableName": "category",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220107134253"
+}

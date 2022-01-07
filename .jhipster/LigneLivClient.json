@@ -1,0 +1,41 @@
+{
+  "name": "LigneLivClient",
+  "fields": [
+    {
+      "fieldName": "livQuantiteCl",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "livNmPiecesCl",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "livTotalPrixCl",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "article",
+      "otherEntityRelationshipName": "ligneLivClient",
+      "relationshipName": "article"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "livraisonCl",
+      "otherEntityRelationshipName": "ligneLivClient",
+      "relationshipName": "livraisonCl"
+    }
+  ],
+  "entityTableName": "ligne_liv_client",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220107134247"
+}

@@ -1,0 +1,97 @@
+{
+  "name": "Client",
+  "fields": [
+    {
+      "fieldName": "clIdent",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "clRaisonSocial",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clAdresse",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clCodePostal",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clVille",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clCountry",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clEmail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clNumeroMobile",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clNumeroFax",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clNumeroFixe",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clDateCreation",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "clDateUpdate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "clStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clNumeroSiret",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "commandeClient",
+      "otherEntityRelationshipName": "client",
+      "relationshipName": "commandeClient"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "factureAchat",
+      "otherEntityRelationshipName": "client",
+      "relationshipName": "factureAchat"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "contactClient",
+      "otherEntityRelationshipName": "client",
+      "relationshipName": "contactClient"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "civiliteClient",
+      "otherEntityRelationshipName": "client",
+      "relationshipName": "civilitecl"
+    }
+  ],
+  "entityTableName": "client",
+  "dto": "no",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220107134251"
+}

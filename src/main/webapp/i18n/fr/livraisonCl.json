@@ -1,0 +1,31 @@
+{
+  "myCrMv1App": {
+    "livraisonCl": {
+      "home": {
+        "title": "LivraisonCls",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Livraison Cl",
+        "createOrEditLabel": "Créer ou éditer un Livraison Cl",
+        "notFound": "Aucun Livraison Cl trouvé"
+      },
+      "created": "Un nouveau Livraison Cl a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Livraison Cl avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Livraison Cl avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Livraison Cl {{ id }} ?"
+      },
+      "detail": {
+        "title": "Livraison Cl"
+      },
+      "id": "ID",
+      "bonLivIdentCl": "Bon Liv Ident Cl",
+      "livDateCl": "Liv Date Cl",
+      "livDateUpdateCl": "Liv Date Update Cl",
+      "livDateEffetCl": "Liv Date Effet Cl",
+      "bonLivTotalCl": "Bon Liv Total Cl",
+      "ligneLivClient": "Ligne Liv Client",
+      "commandeClient": "Commande Client",
+      "factureVente": "Facture Vente"
+    }
+  }
+}

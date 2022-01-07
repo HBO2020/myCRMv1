@@ -1,0 +1,97 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-ligne-liv-client-heading"
+        data-cy="LigneLivClientCreateUpdateHeading"
+        jhiTranslate="myCrMv1App.ligneLivClient.home.createOrEditLabel"
+      >
+        Create or edit a Ligne Liv Client
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.ligneLivClient.livQuantiteCl" for="field_livQuantiteCl"
+            >Liv Quantite Cl</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="livQuantiteCl"
+            id="field_livQuantiteCl"
+            data-cy="livQuantiteCl"
+            formControlName="livQuantiteCl"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.ligneLivClient.livNmPiecesCl" for="field_livNmPiecesCl"
+            >Liv Nm Pieces Cl</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="livNmPiecesCl"
+            id="field_livNmPiecesCl"
+            data-cy="livNmPiecesCl"
+            formControlName="livNmPiecesCl"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.ligneLivClient.livTotalPrixCl" for="field_livTotalPrixCl"
+            >Liv Total Prix Cl</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="livTotalPrixCl"
+            id="field_livTotalPrixCl"
+            data-cy="livTotalPrixCl"
+            formControlName="livTotalPrixCl"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.ligneLivClient.livraisonCl" for="field_livraisonCl"
+            >Livraison Cl</label
+          >
+          <select class="form-control" id="field_livraisonCl" data-cy="livraisonCl" name="livraisonCl" formControlName="livraisonCl">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                livraisonClOption.id === editForm.get('livraisonCl')!.value?.id ? editForm.get('livraisonCl')!.value : livraisonClOption
+              "
+              *ngFor="let livraisonClOption of livraisonClsSharedCollection; trackBy: trackLivraisonClById"
+            >
+              {{ livraisonClOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

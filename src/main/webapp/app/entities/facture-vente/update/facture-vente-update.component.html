@@ -1,0 +1,169 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-facture-vente-heading"
+        data-cy="FactureVenteCreateUpdateHeading"
+        jhiTranslate="myCrMv1App.factureVente.home.createOrEditLabel"
+      >
+        Create or edit a Facture Vente
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.factureVente.venteIdentFac" for="field_venteIdentFac"
+            >Vente Ident Fac</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="venteIdentFac"
+            id="field_venteIdentFac"
+            data-cy="venteIdentFac"
+            formControlName="venteIdentFac"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.factureVente.venteDateEffet" for="field_venteDateEffet"
+            >Vente Date Effet</label
+          >
+          <div class="input-group">
+            <input
+              id="field_venteDateEffet"
+              data-cy="venteDateEffet"
+              type="text"
+              class="form-control"
+              name="venteDateEffet"
+              ngbDatepicker
+              #venteDateEffetDp="ngbDatepicker"
+              formControlName="venteDateEffet"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="venteDateEffetDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.factureVente.venteDateUpdate" for="field_venteDateUpdate"
+            >Vente Date Update</label
+          >
+          <div class="input-group">
+            <input
+              id="field_venteDateUpdate"
+              data-cy="venteDateUpdate"
+              type="text"
+              class="form-control"
+              name="venteDateUpdate"
+              ngbDatepicker
+              #venteDateUpdateDp="ngbDatepicker"
+              formControlName="venteDateUpdate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="venteDateUpdateDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.factureVente.venteStatusFact" for="field_venteStatusFact"
+            >Vente Status Fact</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="venteStatusFact"
+            id="field_venteStatusFact"
+            data-cy="venteStatusFact"
+            formControlName="venteStatusFact"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.factureVente.venteMontantHT" for="field_venteMontantHT"
+            >Vente Montant HT</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="venteMontantHT"
+            id="field_venteMontantHT"
+            data-cy="venteMontantHT"
+            formControlName="venteMontantHT"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.factureVente.venteMontantTVA" for="field_venteMontantTVA"
+            >Vente Montant TVA</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="venteMontantTVA"
+            id="field_venteMontantTVA"
+            data-cy="venteMontantTVA"
+            formControlName="venteMontantTVA"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.factureVente.venteMontantTTC" for="field_venteMontantTTC"
+            >Vente Montant TTC</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="venteMontantTTC"
+            id="field_venteMontantTTC"
+            data-cy="venteMontantTTC"
+            formControlName="venteMontantTTC"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="myCrMv1App.factureVente.livraisonCl" for="field_livraisonCl">Livraison Cl</label>
+          <select class="form-control" id="field_livraisonCl" data-cy="livraisonCl" name="livraisonCl" formControlName="livraisonCl">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                livraisonClOption.id === editForm.get('livraisonCl')!.value?.id ? editForm.get('livraisonCl')!.value : livraisonClOption
+              "
+              *ngFor="let livraisonClOption of livraisonClsSharedCollection; trackBy: trackLivraisonClById"
+            >
+              {{ livraisonClOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

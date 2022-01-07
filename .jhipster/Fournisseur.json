@@ -1,0 +1,97 @@
+{
+  "name": "Fournisseur",
+  "fields": [
+    {
+      "fieldName": "frIdent",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "frRaisonSocial",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "frAdresse",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "frCodePostal",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "frVille",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "frCountry",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "frEmail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "frNumeroMobile",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "frNumeroFax",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "frNumeroFixe",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "frDateCreation",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "frDateUpdate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "frStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "frNumeroSiret",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "commandeFournisseur",
+      "otherEntityRelationshipName": "fournisseur",
+      "relationshipName": "commandeFournisseur"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "factureAchat",
+      "otherEntityRelationshipName": "fournisseur",
+      "relationshipName": "factureAchat"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "contactFournisseur",
+      "otherEntityRelationshipName": "fournisseur",
+      "relationshipName": "contactFournisseur"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "civiliteFournisseur",
+      "otherEntityRelationshipName": "fournisseur",
+      "relationshipName": "civilitefr"
+    }
+  ],
+  "entityTableName": "fournisseur",
+  "dto": "no",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220107134242"
+}

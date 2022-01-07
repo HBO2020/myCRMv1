@@ -1,0 +1,31 @@
+{
+  "myCrMv1App": {
+    "livraisonFr": {
+      "home": {
+        "title": "LivraisonFrs",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Livraison Fr",
+        "createOrEditLabel": "Créer ou éditer un Livraison Fr",
+        "notFound": "Aucun Livraison Fr trouvé"
+      },
+      "created": "Un nouveau Livraison Fr a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Livraison Fr avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Livraison Fr avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Livraison Fr {{ id }} ?"
+      },
+      "detail": {
+        "title": "Livraison Fr"
+      },
+      "id": "ID",
+      "bonLivIdent": "Bon Liv Ident",
+      "livFrDate": "Liv Fr Date",
+      "livFrDateUpdate": "Liv Fr Date Update",
+      "livDateEffet": "Liv Date Effet",
+      "bonLivTotal": "Bon Liv Total",
+      "ligneLivFournisseur": "Ligne Liv Fournisseur",
+      "commandeFournisseur": "Commande Fournisseur",
+      "factureAchat": "Facture Achat"
+    }
+  }
+}

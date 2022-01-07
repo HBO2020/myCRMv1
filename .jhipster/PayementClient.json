@@ -1,0 +1,43 @@
+{
+  "name": "PayementClient",
+  "fields": [
+    {
+      "fieldName": "payementClIdent",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "payementClDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "payementClMode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "payementClEcheance",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "payementClMontant",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "factureAchat",
+      "otherEntityRelationshipName": "payementCl",
+      "relationshipName": "factureAchat"
+    }
+  ],
+  "entityTableName": "payement_client",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220107134248"
+}

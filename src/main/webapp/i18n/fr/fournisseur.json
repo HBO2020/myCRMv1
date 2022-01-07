@@ -1,0 +1,41 @@
+{
+  "myCrMv1App": {
+    "fournisseur": {
+      "home": {
+        "title": "Fournisseurs",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Fournisseur",
+        "createOrEditLabel": "Créer ou éditer un Fournisseur",
+        "notFound": "Aucun Fournisseur trouvé"
+      },
+      "created": "Un nouveau Fournisseur a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Fournisseur avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Fournisseur avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Fournisseur {{ id }} ?"
+      },
+      "detail": {
+        "title": "Fournisseur"
+      },
+      "id": "ID",
+      "frIdent": "Fr Ident",
+      "frRaisonSocial": "Fr Raison Social",
+      "frAdresse": "Fr Adresse",
+      "frCodePostal": "Fr Code Postal",
+      "frVille": "Fr Ville",
+      "frCountry": "Fr Country",
+      "frEmail": "Fr Email",
+      "frNumeroMobile": "Fr Numero Mobile",
+      "frNumeroFax": "Fr Numero Fax",
+      "frNumeroFixe": "Fr Numero Fixe",
+      "frDateCreation": "Fr Date Creation",
+      "frDateUpdate": "Fr Date Update",
+      "frStatus": "Fr Status",
+      "frNumeroSiret": "Fr Numero Siret",
+      "commandeFournisseur": "Commande Fournisseur",
+      "factureAchat": "Facture Achat",
+      "contactFournisseur": "Contact Fournisseur",
+      "civilitefr": "Civilitefr"
+    }
+  }
+}

@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="factureAchat">
+      <h2 data-cy="factureAchatDetailsHeading"><span jhiTranslate="myCrMv1App.factureAchat.detail.title">Facture Achat</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ factureAchat.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.factureAchat.achatIdentFac">Achat Ident Fac</span></dt>
+        <dd>
+          <span>{{ factureAchat.achatIdentFac }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.factureAchat.achatDateEffet">Achat Date Effet</span></dt>
+        <dd>
+          <span>{{ factureAchat.achatDateEffet | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.factureAchat.achatDateUpdate">Achat Date Update</span></dt>
+        <dd>
+          <span>{{ factureAchat.achatDateUpdate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.factureAchat.achatStatusFact">Achat Status Fact</span></dt>
+        <dd>
+          <span>{{ factureAchat.achatStatusFact }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.factureAchat.achatMontantHT">Achat Montant HT</span></dt>
+        <dd>
+          <span>{{ factureAchat.achatMontantHT }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.factureAchat.achatMontantTVA">Achat Montant TVA</span></dt>
+        <dd>
+          <span>{{ factureAchat.achatMontantTVA }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.factureAchat.achatMontantTTC">Achat Montant TTC</span></dt>
+        <dd>
+          <span>{{ factureAchat.achatMontantTTC }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.factureAchat.fournisseur">Fournisseur</span></dt>
+        <dd>
+          <div *ngIf="factureAchat.fournisseur">
+            <a [routerLink]="['/fournisseur', factureAchat.fournisseur?.id, 'view']">{{ factureAchat.fournisseur?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.factureAchat.payementFr">Payement Fr</span></dt>
+        <dd>
+          <div *ngIf="factureAchat.payementFr">
+            <a [routerLink]="['/payement-fournisseur', factureAchat.payementFr?.id, 'view']">{{ factureAchat.payementFr?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.factureAchat.livraisonFr">Livraison Fr</span></dt>
+        <dd>
+          <div *ngIf="factureAchat.livraisonFr">
+            <a [routerLink]="['/livraison-fr', factureAchat.livraisonFr?.id, 'view']">{{ factureAchat.livraisonFr?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.factureAchat.client">Client</span></dt>
+        <dd>
+          <div *ngIf="factureAchat.client">
+            <a [routerLink]="['/client', factureAchat.client?.id, 'view']">{{ factureAchat.client?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.factureAchat.payementCl">Payement Cl</span></dt>
+        <dd>
+          <div *ngIf="factureAchat.payementCl">
+            <a [routerLink]="['/payement-client', factureAchat.payementCl?.id, 'view']">{{ factureAchat.payementCl?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/facture-achat', factureAchat.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

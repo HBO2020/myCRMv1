@@ -1,0 +1,27 @@
+{
+  "myCrMv1App": {
+    "ligneCmdFournisseur": {
+      "home": {
+        "title": "LigneCmdFournisseurs",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Ligne Cmd Fournisseur",
+        "createOrEditLabel": "Créer ou éditer un Ligne Cmd Fournisseur",
+        "notFound": "Aucun Ligne Cmd Fournisseur trouvé"
+      },
+      "created": "Un nouveau Ligne Cmd Fournisseur a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ligne Cmd Fournisseur avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ligne Cmd Fournisseur avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ligne Cmd Fournisseur {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ligne Cmd Fournisseur"
+      },
+      "id": "ID",
+      "cmdQnFr": "Cmd Qn Fr",
+      "cmdNmPieces": "Cmd Nm Pieces",
+      "article": "Article",
+      "commandeFourniseur": "Commande Fourniseur"
+    }
+  }
+}

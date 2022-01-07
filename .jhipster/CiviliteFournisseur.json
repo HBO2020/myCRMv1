@@ -1,0 +1,31 @@
+{
+  "name": "CiviliteFournisseur",
+  "fields": [
+    {
+      "fieldName": "civiliteFrLibelle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "civiliteFrCode",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "fournisseur",
+      "otherEntityRelationshipName": "civilitefr",
+      "relationshipName": "fournisseur"
+    }
+  ],
+  "entityTableName": "civilite_fournisseur",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220107134241"
+}

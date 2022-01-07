@@ -1,0 +1,29 @@
+{
+  "myCrMv1App": {
+    "payementClient": {
+      "home": {
+        "title": "PayementClients",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Payement Client",
+        "createOrEditLabel": "Créer ou éditer un Payement Client",
+        "notFound": "Aucun Payement Client trouvé"
+      },
+      "created": "Un nouveau Payement Client a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Payement Client avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Payement Client avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Payement Client {{ id }} ?"
+      },
+      "detail": {
+        "title": "Payement Client"
+      },
+      "id": "ID",
+      "payementClIdent": "Payement Cl Ident",
+      "payementClDate": "Payement Cl Date",
+      "payementClMode": "Payement Cl Mode",
+      "payementClEcheance": "Payement Cl Echeance",
+      "payementClMontant": "Payement Cl Montant",
+      "factureAchat": "Facture Achat"
+    }
+  }
+}

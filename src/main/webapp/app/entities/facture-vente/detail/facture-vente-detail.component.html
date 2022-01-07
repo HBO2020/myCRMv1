@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="factureVente">
+      <h2 data-cy="factureVenteDetailsHeading"><span jhiTranslate="myCrMv1App.factureVente.detail.title">Facture Vente</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ factureVente.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.factureVente.venteIdentFac">Vente Ident Fac</span></dt>
+        <dd>
+          <span>{{ factureVente.venteIdentFac }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.factureVente.venteDateEffet">Vente Date Effet</span></dt>
+        <dd>
+          <span>{{ factureVente.venteDateEffet | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.factureVente.venteDateUpdate">Vente Date Update</span></dt>
+        <dd>
+          <span>{{ factureVente.venteDateUpdate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.factureVente.venteStatusFact">Vente Status Fact</span></dt>
+        <dd>
+          <span>{{ factureVente.venteStatusFact }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.factureVente.venteMontantHT">Vente Montant HT</span></dt>
+        <dd>
+          <span>{{ factureVente.venteMontantHT }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.factureVente.venteMontantTVA">Vente Montant TVA</span></dt>
+        <dd>
+          <span>{{ factureVente.venteMontantTVA }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.factureVente.venteMontantTTC">Vente Montant TTC</span></dt>
+        <dd>
+          <span>{{ factureVente.venteMontantTTC }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.factureVente.livraisonCl">Livraison Cl</span></dt>
+        <dd>
+          <div *ngIf="factureVente.livraisonCl">
+            <a [routerLink]="['/livraison-cl', factureVente.livraisonCl?.id, 'view']">{{ factureVente.livraisonCl?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/facture-vente', factureVente.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

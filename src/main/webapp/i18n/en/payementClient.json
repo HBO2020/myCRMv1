@@ -1,0 +1,29 @@
+{
+  "myCrMv1App": {
+    "payementClient": {
+      "home": {
+        "title": "Payement Clients",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Payement Client",
+        "createOrEditLabel": "Create or edit a Payement Client",
+        "notFound": "No Payement Clients found"
+      },
+      "created": "A new Payement Client is created with identifier {{ param }}",
+      "updated": "A Payement Client is updated with identifier {{ param }}",
+      "deleted": "A Payement Client is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Payement Client {{ id }}?"
+      },
+      "detail": {
+        "title": "Payement Client"
+      },
+      "id": "ID",
+      "payementClIdent": "Payement Cl Ident",
+      "payementClDate": "Payement Cl Date",
+      "payementClMode": "Payement Cl Mode",
+      "payementClEcheance": "Payement Cl Echeance",
+      "payementClMontant": "Payement Cl Montant",
+      "factureAchat": "Facture Achat"
+    }
+  }
+}

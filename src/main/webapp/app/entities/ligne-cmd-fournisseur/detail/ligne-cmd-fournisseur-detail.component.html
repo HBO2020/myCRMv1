@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ligneCmdFournisseur">
+      <h2 data-cy="ligneCmdFournisseurDetailsHeading">
+        <span jhiTranslate="myCrMv1App.ligneCmdFournisseur.detail.title">Ligne Cmd Fournisseur</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ ligneCmdFournisseur.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.ligneCmdFournisseur.cmdQnFr">Cmd Qn Fr</span></dt>
+        <dd>
+          <span>{{ ligneCmdFournisseur.cmdQnFr }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.ligneCmdFournisseur.cmdNmPieces">Cmd Nm Pieces</span></dt>
+        <dd>
+          <span>{{ ligneCmdFournisseur.cmdNmPieces }}</span>
+        </dd>
+        <dt><span jhiTranslate="myCrMv1App.ligneCmdFournisseur.commandeFourniseur">Commande Fourniseur</span></dt>
+        <dd>
+          <div *ngIf="ligneCmdFournisseur.commandeFourniseur">
+            <a [routerLink]="['/commande-fournisseur', ligneCmdFournisseur.commandeFourniseur?.id, 'view']">{{
+              ligneCmdFournisseur.commandeFourniseur?.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ligne-cmd-fournisseur', ligneCmdFournisseur.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

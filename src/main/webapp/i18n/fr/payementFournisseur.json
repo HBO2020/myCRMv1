@@ -1,0 +1,29 @@
+{
+  "myCrMv1App": {
+    "payementFournisseur": {
+      "home": {
+        "title": "PayementFournisseurs",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Payement Fournisseur",
+        "createOrEditLabel": "Créer ou éditer un Payement Fournisseur",
+        "notFound": "Aucun Payement Fournisseur trouvé"
+      },
+      "created": "Un nouveau Payement Fournisseur a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Payement Fournisseur avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Payement Fournisseur avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Payement Fournisseur {{ id }} ?"
+      },
+      "detail": {
+        "title": "Payement Fournisseur"
+      },
+      "id": "ID",
+      "payementFrIdent": "Payement Fr Ident",
+      "payementFrDate": "Payement Fr Date",
+      "payementFrMode": "Payement Fr Mode",
+      "payementFrEcheance": "Payement Fr Echeance",
+      "payementFrMontant": "Payement Fr Montant",
+      "factureAchat": "Facture Achat"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "UniteArticle",
+  "fields": [
+    {
+      "fieldName": "uniteCode",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "uniteLibelle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "uniteOption",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "article",
+      "otherEntityRelationshipName": "uniteArticle",
+      "relationshipName": "article"
+    }
+  ],
+  "entityTableName": "unite_article",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220107134233"
+}

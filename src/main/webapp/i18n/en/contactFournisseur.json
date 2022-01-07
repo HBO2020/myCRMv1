@@ -1,0 +1,29 @@
+{
+  "myCrMv1App": {
+    "contactFournisseur": {
+      "home": {
+        "title": "Contact Fournisseurs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Contact Fournisseur",
+        "createOrEditLabel": "Create or edit a Contact Fournisseur",
+        "notFound": "No Contact Fournisseurs found"
+      },
+      "created": "A new Contact Fournisseur is created with identifier {{ param }}",
+      "updated": "A Contact Fournisseur is updated with identifier {{ param }}",
+      "deleted": "A Contact Fournisseur is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Contact Fournisseur {{ id }}?"
+      },
+      "detail": {
+        "title": "Contact Fournisseur"
+      },
+      "id": "ID",
+      "contactFrName": "Contact Fr Name",
+      "contactfrPrenom": "Contactfr Prenom",
+      "contactFrEmail": "Contact Fr Email",
+      "contactFrMobilePhone": "Contact Fr Mobile Phone",
+      "contactFrStatus": "Contact Fr Status",
+      "fournisseur": "Fournisseur"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "LigneLivFournisseur",
+  "fields": [
+    {
+      "fieldName": "livFrQuantite",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "livFrNmPieces",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "livFrTotalPrix",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "article",
+      "otherEntityRelationshipName": "ligneLivFournisseur",
+      "relationshipName": "article"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "livraisonFr",
+      "otherEntityRelationshipName": "ligneLivFournisseur",
+      "relationshipName": "livraisonFr"
+    }
+  ],
+  "entityTableName": "ligne_liv_fournisseur",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220107134238"
+}

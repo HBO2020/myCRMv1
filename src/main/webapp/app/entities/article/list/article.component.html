@@ -1,0 +1,165 @@
+<div>
+  <h2 id="page-heading" data-cy="ArticleHeading">
+    <span jhiTranslate="myCrMv1App.article.home.title">Articles</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="reset()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="myCrMv1App.article.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-article"
+        [routerLink]="['/article/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="myCrMv1App.article.home.createLabel"> Create a new Article </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="articles?.length === 0">
+    <span jhiTranslate="myCrMv1App.article.home.notFound">No articles found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="articles && articles.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="reset()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="artclIden">
+            <span jhiTranslate="myCrMv1App.article.artclIden">Artcl Iden</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="artclReference">
+            <span jhiTranslate="myCrMv1App.article.artclReference">Artcl Reference</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="artclDesignation">
+            <span jhiTranslate="myCrMv1App.article.artclDesignation">Artcl Designation</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="artclQnStock">
+            <span jhiTranslate="myCrMv1App.article.artclQnStock">Artcl Qn Stock</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="artclImg">
+            <span jhiTranslate="myCrMv1App.article.artclImg">Artcl Img</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="artclSerie">
+            <span jhiTranslate="myCrMv1App.article.artclSerie">Artcl Serie</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="artclPrixAchat">
+            <span jhiTranslate="myCrMv1App.article.artclPrixAchat">Artcl Prix Achat</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="artclPxAchatTotal">
+            <span jhiTranslate="myCrMv1App.article.artclPxAchatTotal">Artcl Px Achat Total</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="artclPxVenteTotal">
+            <span jhiTranslate="myCrMv1App.article.artclPxVenteTotal">Artcl Px Vente Total</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="ligneCmdFournisseur.id">
+            <span jhiTranslate="myCrMv1App.article.ligneCmdFournisseur">Ligne Cmd Fournisseur</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="ligneLivFournisseur.id">
+            <span jhiTranslate="myCrMv1App.article.ligneLivFournisseur">Ligne Liv Fournisseur</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="uniteArticle.id">
+            <span jhiTranslate="myCrMv1App.article.uniteArticle">Unite Article</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="ligneCmdClient.id">
+            <span jhiTranslate="myCrMv1App.article.ligneCmdClient">Ligne Cmd Client</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="ligneLivClient.id">
+            <span jhiTranslate="myCrMv1App.article.ligneLivClient">Ligne Liv Client</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+        <tr *ngFor="let article of articles; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/article', article.id, 'view']">{{ article.id }}</a>
+          </td>
+          <td>{{ article.artclIden }}</td>
+          <td>{{ article.artclReference }}</td>
+          <td>{{ article.artclDesignation }}</td>
+          <td>{{ article.artclQnStock }}</td>
+          <td>
+            <a *ngIf="article.artclImg" (click)="openFile(article.artclImg, article.artclImgContentType)">
+              <img
+                [src]="'data:' + article.artclImgContentType + ';base64,' + article.artclImg"
+                style="max-height: 30px"
+                alt="article image"
+              />
+            </a>
+            <span *ngIf="article.artclImg">{{ article.artclImgContentType }}, {{ byteSize(article.artclImg) }}</span>
+          </td>
+          <td>{{ article.artclSerie }}</td>
+          <td>{{ article.artclPrixAchat }}</td>
+          <td>{{ article.artclPxAchatTotal }}</td>
+          <td>{{ article.artclPxVenteTotal }}</td>
+          <td>
+            <div *ngIf="article.ligneCmdFournisseur">
+              <a [routerLink]="['/ligne-cmd-fournisseur', article.ligneCmdFournisseur?.id, 'view']">{{
+                article.ligneCmdFournisseur?.id
+              }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="article.ligneLivFournisseur">
+              <a [routerLink]="['/ligne-liv-fournisseur', article.ligneLivFournisseur?.id, 'view']">{{
+                article.ligneLivFournisseur?.id
+              }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="article.uniteArticle">
+              <a [routerLink]="['/unite-article', article.uniteArticle?.id, 'view']">{{ article.uniteArticle?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="article.ligneCmdClient">
+              <a [routerLink]="['/ligne-cmd-client', article.ligneCmdClient?.id, 'view']">{{ article.ligneCmdClient?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="article.ligneLivClient">
+              <a [routerLink]="['/ligne-liv-client', article.ligneLivClient?.id, 'view']">{{ article.ligneLivClient?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/article', article.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/article', article.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(article)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
