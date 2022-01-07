@@ -1,0 +1,213 @@
+// CRM JDL
+entity Article {
+    artclIden Integer,
+	artclReference String,
+    artclDesignation String,
+    artclQnStock Integer,
+    artclImg ImageBlob,
+    artclSerie String,
+	artclPrixAchat Double,
+	artclPxAchatTotal Double,
+	artclPxVenteTotal Double 
+}
+
+entity UniteArticle{
+	uniteCode Integer,
+	uniteLibelle String,
+	uniteOption String
+}
+
+entity LigneCmdFournisseur {
+	cmdQnFr Integer,
+    cmdNmPieces Integer
+}
+
+entity CommandeFournisseur {
+	cmdIdenFr Integer,
+	cmdDateEffetFr LocalDate,
+	cmdDateLivraisonFr LocalDate
+}
+
+entity FactureAchat {
+	achatIdentFac Integer,
+	achatDateEffet LocalDate,
+	achatDateUpdate LocalDate,
+	achatStatusFact String,
+	achatMontantHT Double,
+	achatMontantTVA Double,
+	achatMontantTTC Double
+}
+
+entity LivraisonFr {
+	bonLivIdent Integer,
+	livFrDate LocalDate,
+	livFrDateUpdate LocalDate,
+	livDateEffet LocalDate,
+	bonLivTotal Double
+}
+
+entity LigneLivFournisseur{
+	livFrQuantite Integer,
+	livFrNmPieces Integer,
+	livFrTotalPrix Double
+}
+
+entity PayementFournisseur{
+	payementFrIdent Integer,
+	payementFrDate LocalDate,
+	payementFrMode String,
+	payementFrEcheance LocalDate,
+	payementFrMontant Double
+}
+
+entity ContactFournisseur {
+	contactFrName String,
+	contactfrPrenom String,
+	contactFrEmail String,
+	contactFrMobilePhone String,
+	contactFrStatus String
+}
+
+entity CiviliteFournisseur {
+	civiliteFrLibelle String,
+	civiliteFrCode Integer
+}
+
+entity Fournisseur {
+	frIdent Integer,
+	frRaisonSocial String,
+	frAdresse String,
+	frCodePostal String,
+	frVille String,
+	frCountry String,
+	frEmail String,
+	frNumeroMobile String,
+	frNumeroFax String,
+	frNumeroFixe String,
+	frDateCreation LocalDate,
+	frDateUpdate LocalDate,
+	frStatus String,
+	frNumeroSiret String
+}
+
+entity LigneCmdClient {
+	cmdQnCl Integer,
+    cmdNmPiecesCl Integer
+}
+
+entity CommandeClient {
+	cmdIdenCl Integer,
+	cmdDateEffetCl LocalDate,
+	cmdDateLivraisonCl LocalDate
+}
+
+entity FactureVente {
+	venteIdentFac Integer,
+	venteDateEffet LocalDate,
+	venteDateUpdate LocalDate,
+	venteStatusFact String,
+	venteMontantHT Double,
+	venteMontantTVA Double,
+	venteMontantTTC Double
+}
+
+entity LivraisonCl {
+	bonLivIdentCl Integer,
+	livDateCl LocalDate,
+	livDateUpdateCl LocalDate,
+	livDateEffetCl LocalDate,
+	bonLivTotalCl Double
+}
+
+entity LigneLivClient{
+	livQuantiteCl Integer,
+	livNmPiecesCl Integer,
+	livTotalPrixCl Double
+}
+
+entity PayementClient{
+	payementClIdent Integer,
+	payementClDate LocalDate,
+	payementClMode String,
+	payementClEcheance LocalDate,
+	payementClMontant Double
+}
+
+entity ContactClient {
+	contactNameCl String,
+	contactPrenomCl String,
+	contactEmailCl String,
+	contactMobilePhoneCl String,
+	contactStatusCl String
+}
+
+entity CiviliteClient {
+	civiliteLibelleCl String,
+	civiliteCodeCl Integer
+}
+
+entity Client {
+	clIdent Integer,
+	clRaisonSocial String,
+	clAdresse String,
+	clCodePostal String,
+	clVille String,
+	clCountry String,
+	clEmail String,
+	clNumeroMobile String,
+	clNumeroFax String,
+	clNumeroFixe String,
+	clDateCreation LocalDate,
+	clDateUpdate LocalDate,
+	clStatus String,
+	clNumeroSiret String
+}
+
+// defining multiple OneToMany relationships with comments
+
+relationship OneToMany {
+	LigneCmdFournisseur to Article{ligneCmdFournisseur},
+	LigneLivFournisseur to Article{ligneLivFournisseur},
+	CommandeFournisseur to LigneCmdFournisseur{commandeFourniseur},
+	Fournisseur to CommandeFournisseur{fournisseur},
+	Fournisseur to FactureAchat{fournisseur},
+	PayementFournisseur to FactureAchat{payementFr},
+	Fournisseur to ContactFournisseur{fournisseur},
+	CiviliteFournisseur to Fournisseur{civilitefr},
+	UniteArticle to Article{uniteArticle},
+	LivraisonFr to LigneLivFournisseur{livraisonFr},
+	LivraisonFr to CommandeFournisseur{livraisonFr},
+	LivraisonFr to FactureAchat{livraisonFr},
+	LigneCmdClient to Article{ligneCmdClient},
+	LigneLivClient to Article{ligneLivClient},
+	CommandeClient to LigneCmdClient{commandeClient},
+	Client to CommandeClient{client},
+	Client to FactureAchat{client},
+	PayementClient to FactureAchat{payementCl},
+	Client to ContactClient{client},
+	CiviliteClient to Client{civilitecl},
+	LivraisonCl to LigneLivClient{livraisonCl},
+	LivraisonCl to CommandeClient{livraisonCl},
+	LivraisonCl to FactureVente{livraisonCl}
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Carts {
+    cartIsEmpty Boolean,
+    cartUserEmail String,
+    cartListProduct String
+}
+/**
+ * The category entity
+ */
+entity Category {
+	categoryName String,
+    categoryDesciption String
+}
+
+// Set pagination options
+paginate Fournisseur, Client, Article with infinite-scroll
+
+// Set service options to all except few
+service all with serviceImpl
