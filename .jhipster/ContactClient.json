@@ -1,5 +1,9 @@
 {
-  "name": "ContactClient",
+  "applications": "*",
+  "changelogDate": "20220107134249",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "contact_client",
   "fields": [
     {
       "fieldName": "contactNameCl",
@@ -22,22 +26,18 @@
       "fieldType": "String"
     }
   ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ContactClient",
+  "pagination": "no",
+  "readOnly": false,
   "relationships": [
     {
-      "relationshipType": "many-to-one",
       "otherEntityName": "client",
       "otherEntityRelationshipName": "contactClient",
-      "relationshipName": "client"
+      "relationshipName": "client",
+      "relationshipType": "many-to-one"
     }
   ],
-  "entityTableName": "contact_client",
-  "dto": "no",
-  "pagination": "no",
-  "service": "serviceImpl",
-  "jpaMetamodelFiltering": false,
-  "fluentMethods": true,
-  "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "changelogDate": "20220107134249"
+  "service": "serviceImpl"
 }

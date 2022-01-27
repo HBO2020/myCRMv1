@@ -1,5 +1,9 @@
 {
-  "name": "Category",
+  "applications": "*",
+  "changelogDate": "20220107134253",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "category",
   "fields": [
     {
       "fieldName": "categoryName",
@@ -10,16 +14,12 @@
       "fieldType": "String"
     }
   ],
-  "relationships": [],
-  "javadoc": "The category entity",
-  "entityTableName": "category",
-  "dto": "no",
-  "pagination": "no",
-  "service": "serviceImpl",
-  "jpaMetamodelFiltering": false,
   "fluentMethods": true,
+  "javadoc": "The category entity",
+  "jpaMetamodelFiltering": false,
+  "name": "Category",
+  "pagination": "no",
   "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "changelogDate": "20220107134253"
+  "relationships": [],
+  "service": "serviceImpl"
 }

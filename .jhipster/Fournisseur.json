@@ -1,5 +1,9 @@
 {
-  "name": "Fournisseur",
+  "applications": "*",
+  "changelogDate": "20220107134242",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "fournisseur",
   "fields": [
     {
       "fieldName": "frIdent",
@@ -58,40 +62,36 @@
       "fieldType": "String"
     }
   ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Fournisseur",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
   "relationships": [
     {
-      "relationshipType": "one-to-many",
       "otherEntityName": "commandeFournisseur",
       "otherEntityRelationshipName": "fournisseur",
-      "relationshipName": "commandeFournisseur"
+      "relationshipName": "commandeFournisseur",
+      "relationshipType": "one-to-many"
     },
     {
-      "relationshipType": "one-to-many",
       "otherEntityName": "factureAchat",
       "otherEntityRelationshipName": "fournisseur",
-      "relationshipName": "factureAchat"
+      "relationshipName": "factureAchat",
+      "relationshipType": "one-to-many"
     },
     {
-      "relationshipType": "one-to-many",
       "otherEntityName": "contactFournisseur",
       "otherEntityRelationshipName": "fournisseur",
-      "relationshipName": "contactFournisseur"
+      "relationshipName": "contactFournisseur",
+      "relationshipType": "one-to-many"
     },
     {
-      "relationshipType": "many-to-one",
       "otherEntityName": "civiliteFournisseur",
       "otherEntityRelationshipName": "fournisseur",
-      "relationshipName": "civilitefr"
+      "relationshipName": "civilitefr",
+      "relationshipType": "many-to-one"
     }
   ],
-  "entityTableName": "fournisseur",
-  "dto": "no",
-  "pagination": "infinite-scroll",
-  "service": "serviceImpl",
-  "jpaMetamodelFiltering": false,
-  "fluentMethods": true,
-  "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "changelogDate": "20220107134242"
+  "service": "serviceImpl"
 }

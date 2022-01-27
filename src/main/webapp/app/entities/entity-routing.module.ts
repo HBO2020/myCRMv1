@@ -114,6 +114,26 @@ import { RouterModule } from '@angular/router';
         data: { pageTitle: 'myCrMv1App.category.home.title' },
         loadChildren: () => import('./category/category.module').then(m => m.CategoryModule),
       },
+      {
+        path: 'catalogue',
+        data: { pageTitle: 'myCrMv1App.catalogue.home.title' },
+        loadChildren: () => import('./catalogue/catalogue.module').then(m => m.CatalogueModule),
+      },
+      {
+        path: 'book',
+        data: { pageTitle: 'myCrMv1App.book.home.title' },
+        loadChildren: () => import('./book/book.module').then(m => m.BookModule),
+      },
+      {
+        path: 'staff',
+        data: { pageTitle: 'myCrMv1App.staff.home.title' },
+        loadChildren: () => import('./staff/staff.module').then(m => m.StaffModule),
+      },
+      {
+        path: 'member',
+        data: { pageTitle: 'myCrMv1App.member.home.title' },
+        loadChildren: () => import('./member/member.module').then(m => m.MemberModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],

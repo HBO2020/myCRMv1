@@ -1,5 +1,9 @@
 {
-  "name": "LivraisonFr",
+  "applications": "*",
+  "changelogDate": "20220107134237",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "livraison_fr",
   "fields": [
     {
       "fieldName": "bonLivIdent",
@@ -22,34 +26,30 @@
       "fieldType": "Double"
     }
   ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "LivraisonFr",
+  "pagination": "no",
+  "readOnly": false,
   "relationships": [
     {
-      "relationshipType": "one-to-many",
       "otherEntityName": "ligneLivFournisseur",
       "otherEntityRelationshipName": "livraisonFr",
-      "relationshipName": "ligneLivFournisseur"
+      "relationshipName": "ligneLivFournisseur",
+      "relationshipType": "one-to-many"
     },
     {
-      "relationshipType": "one-to-many",
       "otherEntityName": "commandeFournisseur",
       "otherEntityRelationshipName": "livraisonFr",
-      "relationshipName": "commandeFournisseur"
+      "relationshipName": "commandeFournisseur",
+      "relationshipType": "one-to-many"
     },
     {
-      "relationshipType": "one-to-many",
       "otherEntityName": "factureAchat",
       "otherEntityRelationshipName": "livraisonFr",
-      "relationshipName": "factureAchat"
+      "relationshipName": "factureAchat",
+      "relationshipType": "one-to-many"
     }
   ],
-  "entityTableName": "livraison_fr",
-  "dto": "no",
-  "pagination": "no",
-  "service": "serviceImpl",
-  "jpaMetamodelFiltering": false,
-  "fluentMethods": true,
-  "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "changelogDate": "20220107134237"
+  "service": "serviceImpl"
 }

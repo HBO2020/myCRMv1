@@ -1,5 +1,9 @@
 {
-  "name": "Carts",
+  "applications": "*",
+  "changelogDate": "20220107134252",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "carts",
   "fields": [
     {
       "fieldName": "cartIsEmpty",
@@ -14,16 +18,12 @@
       "fieldType": "String"
     }
   ],
-  "relationships": [],
-  "javadoc": "not an ignored comment",
-  "entityTableName": "carts",
-  "dto": "no",
-  "pagination": "no",
-  "service": "serviceImpl",
-  "jpaMetamodelFiltering": false,
   "fluentMethods": true,
+  "javadoc": "not an ignored comment",
+  "jpaMetamodelFiltering": false,
+  "name": "Carts",
+  "pagination": "no",
   "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "changelogDate": "20220107134252"
+  "relationships": [],
+  "service": "serviceImpl"
 }

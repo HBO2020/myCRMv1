@@ -1,5 +1,9 @@
 {
-  "name": "FactureVente",
+  "applications": "*",
+  "changelogDate": "20220107134245",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "facture_vente",
   "fields": [
     {
       "fieldName": "venteIdentFac",
@@ -30,22 +34,18 @@
       "fieldType": "Double"
     }
   ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "FactureVente",
+  "pagination": "no",
+  "readOnly": false,
   "relationships": [
     {
-      "relationshipType": "many-to-one",
       "otherEntityName": "livraisonCl",
       "otherEntityRelationshipName": "factureVente",
-      "relationshipName": "livraisonCl"
+      "relationshipName": "livraisonCl",
+      "relationshipType": "many-to-one"
     }
   ],
-  "entityTableName": "facture_vente",
-  "dto": "no",
-  "pagination": "no",
-  "service": "serviceImpl",
-  "jpaMetamodelFiltering": false,
-  "fluentMethods": true,
-  "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "changelogDate": "20220107134245"
+  "service": "serviceImpl"
 }

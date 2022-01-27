@@ -1,5 +1,9 @@
 {
-  "name": "ContactFournisseur",
+  "applications": "*",
+  "changelogDate": "20220107134240",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "contact_fournisseur",
   "fields": [
     {
       "fieldName": "contactFrName",
@@ -22,22 +26,18 @@
       "fieldType": "String"
     }
   ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ContactFournisseur",
+  "pagination": "no",
+  "readOnly": false,
   "relationships": [
     {
-      "relationshipType": "many-to-one",
       "otherEntityName": "fournisseur",
       "otherEntityRelationshipName": "contactFournisseur",
-      "relationshipName": "fournisseur"
+      "relationshipName": "fournisseur",
+      "relationshipType": "many-to-one"
     }
   ],
-  "entityTableName": "contact_fournisseur",
-  "dto": "no",
-  "pagination": "no",
-  "service": "serviceImpl",
-  "jpaMetamodelFiltering": false,
-  "fluentMethods": true,
-  "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "changelogDate": "20220107134240"
+  "service": "serviceImpl"
 }

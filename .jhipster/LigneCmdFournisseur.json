@@ -1,5 +1,9 @@
 {
-  "name": "LigneCmdFournisseur",
+  "applications": "*",
+  "changelogDate": "20220107134234",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "ligne_cmd_fournisseur",
   "fields": [
     {
       "fieldName": "cmdQnFr",
@@ -10,28 +14,24 @@
       "fieldType": "Integer"
     }
   ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "LigneCmdFournisseur",
+  "pagination": "no",
+  "readOnly": false,
   "relationships": [
     {
-      "relationshipType": "one-to-many",
       "otherEntityName": "article",
       "otherEntityRelationshipName": "ligneCmdFournisseur",
-      "relationshipName": "article"
+      "relationshipName": "article",
+      "relationshipType": "one-to-many"
     },
     {
-      "relationshipType": "many-to-one",
       "otherEntityName": "commandeFournisseur",
       "otherEntityRelationshipName": "ligneCmdFournisseur",
-      "relationshipName": "commandeFourniseur"
+      "relationshipName": "commandeFourniseur",
+      "relationshipType": "many-to-one"
     }
   ],
-  "entityTableName": "ligne_cmd_fournisseur",
-  "dto": "no",
-  "pagination": "no",
-  "service": "serviceImpl",
-  "jpaMetamodelFiltering": false,
-  "fluentMethods": true,
-  "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "changelogDate": "20220107134234"
+  "service": "serviceImpl"
 }

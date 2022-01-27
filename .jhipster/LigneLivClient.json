@@ -1,5 +1,9 @@
 {
-  "name": "LigneLivClient",
+  "applications": "*",
+  "changelogDate": "20220107134247",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "ligne_liv_client",
   "fields": [
     {
       "fieldName": "livQuantiteCl",
@@ -14,28 +18,24 @@
       "fieldType": "Double"
     }
   ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "LigneLivClient",
+  "pagination": "no",
+  "readOnly": false,
   "relationships": [
     {
-      "relationshipType": "one-to-many",
       "otherEntityName": "article",
       "otherEntityRelationshipName": "ligneLivClient",
-      "relationshipName": "article"
+      "relationshipName": "article",
+      "relationshipType": "one-to-many"
     },
     {
-      "relationshipType": "many-to-one",
       "otherEntityName": "livraisonCl",
       "otherEntityRelationshipName": "ligneLivClient",
-      "relationshipName": "livraisonCl"
+      "relationshipName": "livraisonCl",
+      "relationshipType": "many-to-one"
     }
   ],
-  "entityTableName": "ligne_liv_client",
-  "dto": "no",
-  "pagination": "no",
-  "service": "serviceImpl",
-  "jpaMetamodelFiltering": false,
-  "fluentMethods": true,
-  "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "changelogDate": "20220107134247"
+  "service": "serviceImpl"
 }

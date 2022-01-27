@@ -1,5 +1,9 @@
 {
-  "name": "CiviliteFournisseur",
+  "applications": "*",
+  "changelogDate": "20220107134241",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "civilite_fournisseur",
   "fields": [
     {
       "fieldName": "civiliteFrLibelle",
@@ -10,22 +14,18 @@
       "fieldType": "Integer"
     }
   ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "CiviliteFournisseur",
+  "pagination": "no",
+  "readOnly": false,
   "relationships": [
     {
-      "relationshipType": "one-to-many",
       "otherEntityName": "fournisseur",
       "otherEntityRelationshipName": "civilitefr",
-      "relationshipName": "fournisseur"
+      "relationshipName": "fournisseur",
+      "relationshipType": "one-to-many"
     }
   ],
-  "entityTableName": "civilite_fournisseur",
-  "dto": "no",
-  "pagination": "no",
-  "service": "serviceImpl",
-  "jpaMetamodelFiltering": false,
-  "fluentMethods": true,
-  "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "changelogDate": "20220107134241"
+  "service": "serviceImpl"
 }

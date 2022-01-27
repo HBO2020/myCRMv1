@@ -1,5 +1,9 @@
 {
-  "name": "Client",
+  "applications": "*",
+  "changelogDate": "20220107134251",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "client",
   "fields": [
     {
       "fieldName": "clIdent",
@@ -58,40 +62,36 @@
       "fieldType": "String"
     }
   ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Client",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
   "relationships": [
     {
-      "relationshipType": "one-to-many",
       "otherEntityName": "commandeClient",
       "otherEntityRelationshipName": "client",
-      "relationshipName": "commandeClient"
+      "relationshipName": "commandeClient",
+      "relationshipType": "one-to-many"
     },
     {
-      "relationshipType": "one-to-many",
       "otherEntityName": "factureAchat",
       "otherEntityRelationshipName": "client",
-      "relationshipName": "factureAchat"
+      "relationshipName": "factureAchat",
+      "relationshipType": "one-to-many"
     },
     {
-      "relationshipType": "one-to-many",
       "otherEntityName": "contactClient",
       "otherEntityRelationshipName": "client",
-      "relationshipName": "contactClient"
+      "relationshipName": "contactClient",
+      "relationshipType": "one-to-many"
     },
     {
-      "relationshipType": "many-to-one",
       "otherEntityName": "civiliteClient",
       "otherEntityRelationshipName": "client",
-      "relationshipName": "civilitecl"
+      "relationshipName": "civilitecl",
+      "relationshipType": "many-to-one"
     }
   ],
-  "entityTableName": "client",
-  "dto": "no",
-  "pagination": "infinite-scroll",
-  "service": "serviceImpl",
-  "jpaMetamodelFiltering": false,
-  "fluentMethods": true,
-  "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "changelogDate": "20220107134251"
+  "service": "serviceImpl"
 }
