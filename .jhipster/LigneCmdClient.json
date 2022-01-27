@@ -1,5 +1,9 @@
 {
-  "name": "LigneCmdClient",
+  "applications": "*",
+  "changelogDate": "20220107134243",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "ligne_cmd_client",
   "fields": [
     {
       "fieldName": "cmdQnCl",
@@ -10,28 +14,24 @@
       "fieldType": "Integer"
     }
   ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "LigneCmdClient",
+  "pagination": "no",
+  "readOnly": false,
   "relationships": [
     {
-      "relationshipType": "one-to-many",
       "otherEntityName": "article",
       "otherEntityRelationshipName": "ligneCmdClient",
-      "relationshipName": "article"
+      "relationshipName": "article",
+      "relationshipType": "one-to-many"
     },
     {
-      "relationshipType": "many-to-one",
       "otherEntityName": "commandeClient",
       "otherEntityRelationshipName": "ligneCmdClient",
-      "relationshipName": "commandeClient"
+      "relationshipName": "commandeClient",
+      "relationshipType": "many-to-one"
     }
   ],
-  "entityTableName": "ligne_cmd_client",
-  "dto": "no",
-  "pagination": "no",
-  "service": "serviceImpl",
-  "jpaMetamodelFiltering": false,
-  "fluentMethods": true,
-  "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "changelogDate": "20220107134243"
+  "service": "serviceImpl"
 }

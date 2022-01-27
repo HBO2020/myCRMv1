@@ -93,6 +93,14 @@ public class CacheConfiguration {
             createCache(cm, com.hbo.mycrmv1.domain.Client.class.getName() + ".contactClients");
             createCache(cm, com.hbo.mycrmv1.domain.Carts.class.getName());
             createCache(cm, com.hbo.mycrmv1.domain.Category.class.getName());
+            createCache(cm, com.hbo.mycrmv1.domain.Catalogue.class.getName());
+            createCache(cm, com.hbo.mycrmv1.domain.Catalogue.class.getName() + ".books");
+            createCache(cm, com.hbo.mycrmv1.domain.Book.class.getName());
+            createCache(cm, com.hbo.mycrmv1.domain.Book.class.getName() + ".staff");
+            createCache(cm, com.hbo.mycrmv1.domain.Book.class.getName() + ".members");
+            createCache(cm, com.hbo.mycrmv1.domain.Book.class.getName() + ".catalogues");
+            createCache(cm, com.hbo.mycrmv1.domain.Staff.class.getName());
+            createCache(cm, com.hbo.mycrmv1.domain.Member.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

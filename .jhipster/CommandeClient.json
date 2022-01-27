@@ -1,5 +1,9 @@
 {
-  "name": "CommandeClient",
+  "applications": "*",
+  "changelogDate": "20220107134244",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "commande_client",
   "fields": [
     {
       "fieldName": "cmdIdenCl",
@@ -14,34 +18,30 @@
       "fieldType": "LocalDate"
     }
   ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "CommandeClient",
+  "pagination": "no",
+  "readOnly": false,
   "relationships": [
     {
-      "relationshipType": "one-to-many",
       "otherEntityName": "ligneCmdClient",
       "otherEntityRelationshipName": "commandeClient",
-      "relationshipName": "ligneCmdClient"
+      "relationshipName": "ligneCmdClient",
+      "relationshipType": "one-to-many"
     },
     {
-      "relationshipType": "many-to-one",
       "otherEntityName": "client",
       "otherEntityRelationshipName": "commandeClient",
-      "relationshipName": "client"
+      "relationshipName": "client",
+      "relationshipType": "many-to-one"
     },
     {
-      "relationshipType": "many-to-one",
       "otherEntityName": "livraisonCl",
       "otherEntityRelationshipName": "commandeClient",
-      "relationshipName": "livraisonCl"
+      "relationshipName": "livraisonCl",
+      "relationshipType": "many-to-one"
     }
   ],
-  "entityTableName": "commande_client",
-  "dto": "no",
-  "pagination": "no",
-  "service": "serviceImpl",
-  "jpaMetamodelFiltering": false,
-  "fluentMethods": true,
-  "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "changelogDate": "20220107134244"
+  "service": "serviceImpl"
 }

@@ -1,5 +1,9 @@
 {
-  "name": "PayementClient",
+  "applications": "*",
+  "changelogDate": "20220107134248",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "payement_client",
   "fields": [
     {
       "fieldName": "payementClIdent",
@@ -22,22 +26,18 @@
       "fieldType": "Double"
     }
   ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PayementClient",
+  "pagination": "no",
+  "readOnly": false,
   "relationships": [
     {
-      "relationshipType": "one-to-many",
       "otherEntityName": "factureAchat",
       "otherEntityRelationshipName": "payementCl",
-      "relationshipName": "factureAchat"
+      "relationshipName": "factureAchat",
+      "relationshipType": "one-to-many"
     }
   ],
-  "entityTableName": "payement_client",
-  "dto": "no",
-  "pagination": "no",
-  "service": "serviceImpl",
-  "jpaMetamodelFiltering": false,
-  "fluentMethods": true,
-  "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "changelogDate": "20220107134248"
+  "service": "serviceImpl"
 }

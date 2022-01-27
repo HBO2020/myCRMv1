@@ -1,5 +1,9 @@
 {
-  "name": "PayementFournisseur",
+  "applications": "*",
+  "changelogDate": "20220107134239",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "payement_fournisseur",
   "fields": [
     {
       "fieldName": "payementFrIdent",
@@ -22,22 +26,18 @@
       "fieldType": "Double"
     }
   ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PayementFournisseur",
+  "pagination": "no",
+  "readOnly": false,
   "relationships": [
     {
-      "relationshipType": "one-to-many",
       "otherEntityName": "factureAchat",
       "otherEntityRelationshipName": "payementFr",
-      "relationshipName": "factureAchat"
+      "relationshipName": "factureAchat",
+      "relationshipType": "one-to-many"
     }
   ],
-  "entityTableName": "payement_fournisseur",
-  "dto": "no",
-  "pagination": "no",
-  "service": "serviceImpl",
-  "jpaMetamodelFiltering": false,
-  "fluentMethods": true,
-  "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "changelogDate": "20220107134239"
+  "service": "serviceImpl"
 }

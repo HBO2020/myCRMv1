@@ -1,0 +1,33 @@
+{
+  "applications": "*",
+  "changelogDate": "20220127115625",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "catalogue",
+  "fields": [
+    {
+      "fieldName": "authorName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomOfCopies",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Catalogue",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nameOfBook",
+      "otherEntityName": "book",
+      "otherEntityRelationshipName": "catalogue",
+      "ownerSide": true,
+      "relationshipName": "book",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

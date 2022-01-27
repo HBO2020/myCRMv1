@@ -1,5 +1,9 @@
 {
-  "name": "Article",
+  "applications": "*",
+  "changelogDate": "20220107134232",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "article",
   "fields": [
     {
       "fieldName": "artclIden",
@@ -39,46 +43,42 @@
       "fieldType": "Double"
     }
   ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Article",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
   "relationships": [
     {
-      "relationshipType": "many-to-one",
       "otherEntityName": "ligneCmdFournisseur",
       "otherEntityRelationshipName": "article",
-      "relationshipName": "ligneCmdFournisseur"
+      "relationshipName": "ligneCmdFournisseur",
+      "relationshipType": "many-to-one"
     },
     {
-      "relationshipType": "many-to-one",
       "otherEntityName": "ligneLivFournisseur",
       "otherEntityRelationshipName": "article",
-      "relationshipName": "ligneLivFournisseur"
+      "relationshipName": "ligneLivFournisseur",
+      "relationshipType": "many-to-one"
     },
     {
-      "relationshipType": "many-to-one",
       "otherEntityName": "uniteArticle",
       "otherEntityRelationshipName": "article",
-      "relationshipName": "uniteArticle"
+      "relationshipName": "uniteArticle",
+      "relationshipType": "many-to-one"
     },
     {
-      "relationshipType": "many-to-one",
       "otherEntityName": "ligneCmdClient",
       "otherEntityRelationshipName": "article",
-      "relationshipName": "ligneCmdClient"
+      "relationshipName": "ligneCmdClient",
+      "relationshipType": "many-to-one"
     },
     {
-      "relationshipType": "many-to-one",
       "otherEntityName": "ligneLivClient",
       "otherEntityRelationshipName": "article",
-      "relationshipName": "ligneLivClient"
+      "relationshipName": "ligneLivClient",
+      "relationshipType": "many-to-one"
     }
   ],
-  "entityTableName": "article",
-  "dto": "no",
-  "pagination": "infinite-scroll",
-  "service": "serviceImpl",
-  "jpaMetamodelFiltering": false,
-  "fluentMethods": true,
-  "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "changelogDate": "20220107134232"
+  "service": "serviceImpl"
 }

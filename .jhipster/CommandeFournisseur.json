@@ -1,5 +1,9 @@
 {
-  "name": "CommandeFournisseur",
+  "applications": "*",
+  "changelogDate": "20220107134235",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "commande_fournisseur",
   "fields": [
     {
       "fieldName": "cmdIdenFr",
@@ -14,34 +18,30 @@
       "fieldType": "LocalDate"
     }
   ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "CommandeFournisseur",
+  "pagination": "no",
+  "readOnly": false,
   "relationships": [
     {
-      "relationshipType": "one-to-many",
       "otherEntityName": "ligneCmdFournisseur",
       "otherEntityRelationshipName": "commandeFourniseur",
-      "relationshipName": "ligneCmdFournisseur"
+      "relationshipName": "ligneCmdFournisseur",
+      "relationshipType": "one-to-many"
     },
     {
-      "relationshipType": "many-to-one",
       "otherEntityName": "fournisseur",
       "otherEntityRelationshipName": "commandeFournisseur",
-      "relationshipName": "fournisseur"
+      "relationshipName": "fournisseur",
+      "relationshipType": "many-to-one"
     },
     {
-      "relationshipType": "many-to-one",
       "otherEntityName": "livraisonFr",
       "otherEntityRelationshipName": "commandeFournisseur",
-      "relationshipName": "livraisonFr"
+      "relationshipName": "livraisonFr",
+      "relationshipType": "many-to-one"
     }
   ],
-  "entityTableName": "commande_fournisseur",
-  "dto": "no",
-  "pagination": "no",
-  "service": "serviceImpl",
-  "jpaMetamodelFiltering": false,
-  "fluentMethods": true,
-  "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "changelogDate": "20220107134235"
+  "service": "serviceImpl"
 }

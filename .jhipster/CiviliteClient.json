@@ -1,5 +1,9 @@
 {
-  "name": "CiviliteClient",
+  "applications": "*",
+  "changelogDate": "20220107134250",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "civilite_client",
   "fields": [
     {
       "fieldName": "civiliteLibelleCl",
@@ -10,22 +14,18 @@
       "fieldType": "Integer"
     }
   ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "CiviliteClient",
+  "pagination": "no",
+  "readOnly": false,
   "relationships": [
     {
-      "relationshipType": "one-to-many",
       "otherEntityName": "client",
       "otherEntityRelationshipName": "civilitecl",
-      "relationshipName": "client"
+      "relationshipName": "client",
+      "relationshipType": "one-to-many"
     }
   ],
-  "entityTableName": "civilite_client",
-  "dto": "no",
-  "pagination": "no",
-  "service": "serviceImpl",
-  "jpaMetamodelFiltering": false,
-  "fluentMethods": true,
-  "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "changelogDate": "20220107134250"
+  "service": "serviceImpl"
 }

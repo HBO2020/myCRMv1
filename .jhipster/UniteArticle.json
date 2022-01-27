@@ -1,5 +1,9 @@
 {
-  "name": "UniteArticle",
+  "applications": "*",
+  "changelogDate": "20220107134233",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "unite_article",
   "fields": [
     {
       "fieldName": "uniteCode",
@@ -14,22 +18,18 @@
       "fieldType": "String"
     }
   ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "UniteArticle",
+  "pagination": "no",
+  "readOnly": false,
   "relationships": [
     {
-      "relationshipType": "one-to-many",
       "otherEntityName": "article",
       "otherEntityRelationshipName": "uniteArticle",
-      "relationshipName": "article"
+      "relationshipName": "article",
+      "relationshipType": "one-to-many"
     }
   ],
-  "entityTableName": "unite_article",
-  "dto": "no",
-  "pagination": "no",
-  "service": "serviceImpl",
-  "jpaMetamodelFiltering": false,
-  "fluentMethods": true,
-  "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "changelogDate": "20220107134233"
+  "service": "serviceImpl"
 }
